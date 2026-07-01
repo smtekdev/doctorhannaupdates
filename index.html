@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --teal: #1b5c6b;
+        --teal-dark: #0d3540;
+        --teal-light: #d6edf2;
+        --teal-hover: #2a7a8a;
+        --gold: #c9a96e;
+        --gold-light: #f0e4cc;
+        --cream: #faf7f2;
+        --ink: #14120f;
+        --muted: #7a7060;
+        --white: #ffffff;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 48px;
+        background: var(--cream);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-wordmark {
+        animation: float 3s ease-in-out infinite;
+        display: block;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .nav-wordmark img {
+        height: 95px;
+        width: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--muted);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--teal);
+      }
+
+      .nav-cta {
+        background: var(--teal) !important;
+        color: var(--white) !important;
+        padding: 10px 22px !important;
+        border-radius: 2px;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+
+      /* ── MARQUEE ── */
+      .marquee-bar {
+        background: var(--teal-dark);
+        overflow: hidden;
+        padding: 10px 0;
+        white-space: nowrap;
+      }
+
+      .marquee-track {
+        display: inline-block;
+        animation: marquee 28s linear infinite;
+      }
+
+      .marquee-track span {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--teal-light);
+        font-weight: 300;
+        padding: 0 40px;
+      }
+
+      .marquee-track span::before {
+        content: "◆ ";
+        color: var(--gold);
+        font-size: 8px;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── HERO — magazine asymmetric grid ── */
+      .hero {
+        display: grid;
+        grid-template-columns: 58px 1fr 1fr;
+        grid-template-rows: auto auto;
+        min-height: 88vh;
+      }
+
+      /* vertical rotated label column */
+      .hero-label-col {
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+        grid-row: 1 / 3;
+      }
+
+      .hero-label-col span {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--teal-dark);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .hero-text {
+        background: var(--cream);
+        padding: 64px 52px 48px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        grid-row: 1;
+        border-right: 1px solid rgba(0, 0, 0, 0.07);
+      }
+
+      .hero-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 28px;
+      }
+
+      .hero-h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(42px, 5.5vw, 72px);
+        line-height: 1.03;
+        font-weight: 400;
+        color: var(--ink);
+        letter-spacing: -1.5px;
+      }
+
+      .hero-h1 em {
+        font-style: italic;
+        color: var(--teal);
+      }
+
+      .hero-sub {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--muted);
+        font-weight: 300;
+        max-width: 380px;
+        margin-top: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .btn-fill {
+        background: var(--teal);
+        color: #fff;
+        border: none;
+        padding: 14px 28px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s;
+      }
+
+      .btn-fill:hover {
+        background: var(--teal-dark);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--teal);
+        border: 1.5px solid var(--teal);
+        padding: 13px 24px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+
+      .btn-outline:hover {
+        background: var(--teal);
+        color: #fff;
+      }
+
+      /* Hero right — big stat panel */
+      .hero-stat {
+        background: var(--teal);
+        padding: 64px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        grid-row: 1;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-stat::before {
+        content: "58";
+        font-family: "Playfair Display", serif;
+        font-size: 280px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.05);
+        position: absolute;
+        bottom: -40px;
+        right: -20px;
+        line-height: 1;
+        pointer-events: none;
+        letter-spacing: -10px;
+      }
+
+      .stat-top-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 300;
+      }
+
+      .stat-main {
+        position: relative;
+        z-index: 1;
+      }
+
+      .stat-pct {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(64px, 8vw, 108px);
+        color: var(--gold);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -3px;
+      }
+
+      .stat-pct-label {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 300;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+
+      .stat-divider {
+        width: 40px;
+        height: 2px;
+        background: var(--gold);
+        margin: 20px 0;
+      }
+
+      .stat-compare {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+        line-height: 1.6;
+      }
+
+      .stat-compare strong {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 400;
+      }
+
+      .stat-certs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cert {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 4px 10px;
+        border-radius: 1px;
+      }
+
+      /* Bottom row of hero — spans both middle cols */
+      .hero-bottom {
+        grid-column: 2 / 4;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .hero-stat-pill {
+        padding: 28px 36px;
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .hero-stat-pill:last-child {
+        border-right: none;
+      }
+
+      .pill-num {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        color: var(--teal);
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+
+      .pill-label {
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 300;
+        line-height: 1.5;
+      }
+
+      /* ── SERVICES SECTION ── */
+      .services {
+        padding: 96px 48px 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 56px;
+        align-items: end;
+      }
+
+      .section-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 14px;
+      }
+
+      .section-h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 44px);
+        font-weight: 400;
+        line-height: 1.15;
+        letter-spacing: -0.8px;
+        color: var(--ink);
+      }
+
+      .section-desc {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--muted);
+        font-weight: 300;
+        align-self: end;
+      }
+
+      /* Bento-style services grid */
+      .services-bento {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 260px 200px;
+        gap: 2px;
+        background: rgba(0, 0, 0, 0.06);
+        border: 2px solid rgba(0, 0, 0, 0.06);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .svc {
+        background: var(--white);
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.25s;
+      }
+
+      .svc:hover {
+        background: var(--teal-light);
+      }
+
+      .svc.tall {
+        grid-row: 1 / 3;
+      }
+
+      .svc.teal-bg {
+        background: var(--teal);
+      }
+
+      .svc.teal-bg:hover {
+        background: var(--teal-dark);
+      }
+
+      .svc.gold-bg {
+        background: var(--gold-light);
+      }
+
+      .svc.gold-bg:hover {
+        background: var(--gold);
+      }
+
+      .svc-index {
+        font-family: "Playfair Display", serif;
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      .svc.teal-bg .svc-index {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .svc-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(18px, 2vw, 24px);
+        font-weight: 400;
+        color: var(--ink);
+        line-height: 1.2;
+        letter-spacing: -0.3px;
+      }
+
+      .svc.teal-bg .svc-title {
+        color: #fff;
+      }
+
+      .svc-body {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.7;
+        font-weight: 300;
+        margin-top: 12px;
+      }
+
+      .svc.teal-bg .svc-body {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .svc-rate {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--teal);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        text-decoration: none;
+      }
+
+      .svc.teal-bg .svc-rate {
+        color: var(--gold);
+      }
+
+      .svc-big-num {
+        position: absolute;
+        bottom: -16px;
+        right: 16px;
+        font-family: "Playfair Display", serif;
+        font-size: 100px;
+        font-weight: 700;
+        color: rgba(27, 92, 107, 0.06);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .svc.teal-bg .svc-big-num {
+        color: rgba(255, 255, 255, 0.06);
+      }
+
+      /* ── DR HANNA SECTION ── */
+      .about-section {
+        background: var(--ink);
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        min-height: 480px;
+      }
+
+      .about-left {
+        padding: 80px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .about-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 24px;
+      }
+
+      .about-quote {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(22px, 2.8vw, 34px);
+        color: #fff;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: -0.5px;
+        border-left: 3px solid var(--gold);
+        padding-left: 28px;
+        max-width: 540px;
+      }
+
+      .about-bio {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 300;
+        line-height: 1.8;
+        margin-top: 32px;
+        max-width: 500px;
+      }
+
+      .about-bio strong {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 400;
+      }
+
+      .about-right {
+        background: var(--gold);
+        padding: 80px 52px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .about-right-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--teal-dark);
+        font-weight: 500;
+      }
+
+      .credentials {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .cred-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(20, 18, 15, 0.12);
+      }
+
+      .cred-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .cred-mark {
+        width: 6px;
+        height: 6px;
+        background: var(--teal-dark);
+        border-radius: 50%;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+
+      .cred-text {
+        font-size: 13px;
+        color: var(--teal-dark);
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .cred-sub {
+        font-size: 11px;
+        color: rgba(13, 53, 64, 0.6);
+        font-weight: 300;
+        margin-top: 2px;
+      }
+
+      /* ── TESTIMONIALS ── */
+      .testimonials {
+        padding: 96px 48px;
+        background: var(--cream);
+      }
+
+      .testimonials-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 52px;
+      }
+
+      .t-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 2px;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      .t-card {
+        background: var(--white);
+        padding: 36px 32px;
+      }
+
+      .t-card.featured {
+        background: var(--teal-light);
+      }
+
+      .t-stars {
+        display: flex;
+        gap: 3px;
+        margin-bottom: 20px;
+      }
+
+      .t-star {
+        width: 12px;
+        height: 12px;
+        background: var(--gold);
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+
+      .t-text {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        color: var(--ink);
+        font-style: italic;
+        line-height: 1.65;
+        font-weight: 400;
+      }
+
+      .t-author {
+        margin-top: 24px;
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      /* ── PROCESS STRIP ── */
+      .process {
+        background: var(--teal-dark);
+        padding: 64px 48px;
+      }
+
+      .process-header {
+        margin-bottom: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .process-h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .process-note {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 300;
+        max-width: 260px;
+        text-align: right;
+        line-height: 1.6;
+      }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+      }
+
+      .step {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 28px 24px;
+        border-left: 2px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: default;
+      }
+
+      .step:first-child {
+        border-left: 2px solid var(--gold);
+      }
+
+      /* ── HOVER EFFECT FOR STEPS ── */
+      .step:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        border-left-color: var(--gold);
+      }
+
+      .step:hover .step-num {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .step:hover .step-title {
+        color: var(--gold);
+      }
+
+      .step:hover .step-desc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .step-num {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        color: rgba(255, 255, 255, 0.1);
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 20px;
+        transition: color 0.4s ease;
+      }
+
+      .step-title {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 8px;
+        transition: color 0.4s ease;
+      }
+
+      .step-desc {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 300;
+        line-height: 1.65;
+        transition: color 0.4s ease;
+      }
+
+      /* ── CTA ── */
+      .cta-section {
+        background: var(--gold-light);
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-left {
+        padding: 88px 72px;
+        border-right: 1px solid rgba(201, 169, 110, 0.3);
+      }
+
+      .cta-h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 44px);
+        font-weight: 400;
+        line-height: 1.15;
+        letter-spacing: -0.8px;
+        color: var(--ink);
+        margin-bottom: 16px;
+      }
+
+      .cta-h2 em {
+        font-style: italic;
+        color: var(--teal);
+      }
+
+      .cta-sub {
+        font-size: 14px;
+        color: var(--muted);
+        font-weight: 300;
+        line-height: 1.7;
+        margin-bottom: 36px;
+      }
+
+      .cta-right {
+        padding: 88px 72px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+      }
+
+      .phone-display {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        color: var(--teal);
+        font-weight: 700;
+        letter-spacing: -1px;
+        text-decoration: none;
+        display: block;
+        line-height: 1;
+      }
+
+      .phone-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+
+      .address-block {
+        padding-top: 28px;
+        border-top: 1px solid rgba(201, 169, 110, 0.4);
+      }
+
+      .address-block p {
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 300;
+        line-height: 1.7;
+      }
+
+      .address-block strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--ink);
+        padding: 40px 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .footer-right {
+        display: flex;
+        gap: 24px;
+      }
+
+      .footer-right a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
+
+      .footer-right a:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 40px 1fr;
+        }
+
+        .hero-stat {
+          display: none;
+        }
+
+        .hero-bottom {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-stat-pill:last-child {
+          display: none;
+        }
+
+        .services-bento {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+
+        .svc.tall {
+          grid-row: auto;
+        }
+
+        .about-section {
+          grid-template-columns: 1fr;
+        }
+
+        .about-right {
+          display: none;
+        }
+
+        .t-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .process-steps {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cta-section {
+          grid-template-columns: 1fr;
+        }
+
+        nav {
+          padding: 16px 24px;
+        }
+
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+
+        .services,
+        .testimonials {
+          padding: 60px 24px;
+        }
+
+        .about-left {
+          padding: 60px 32px;
+        }
+
+        .process {
+          padding: 60px 24px;
+        }
+
+        .cta-left,
+        .cta-right {
+          padding: 60px 32px;
+        }
+
+        footer {
+          padding: 32px 24px;
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .process-steps {
+          grid-template-columns: 1fr;
+        }
+
+        .process-header {
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
+
+        .process-note {
+          text-align: left;
+          max-width: 100%;
+        }
+
+        .step:hover {
+          transform: translateY(-2px) scale(1.01);
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .btn-fill,
+        .btn-outline {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html" class="nav-wordmark">
+        <img
+          src="hanna.png"
+          alt="Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD"
+        />
+      </a>
+      <div class="nav-links">
+        <a href="Services.html">Services</a>
+        <a href="About-Us.html">About Dr. Hanna</a>
+        <a href="Stories.html">Stories</a>
+        <a href="Contact-Us.html">Contact</a>
+        <a href="tel:2127940080" class="nav-cta">Free Consultation</a>
+      </div>
+    </nav>
+
+    <div class="marquee-bar">
+      <div class="marquee-track">
+        <span>IVF Specialists Since 2001</span>
+        <span>58% Success Rate Ages 35–37</span>
+        <span>SART Certified</span>
+        <span>Joint Commission Accredited</span>
+        <span>FDA Approved Facility</span>
+        <span>Same Doctor Every Step</span>
+        <span>NY State Certified</span>
+        <span>Free Initial Consultation</span>
+        <span>IVF Specialists Since 2001</span>
+        <span>58% Success Rate Ages 35–37</span>
+        <span>SART Certified</span>
+        <span>Joint Commission Accredited</span>
+        <span>FDA Approved Facility</span>
+        <span>Same Doctor Every Step</span>
+        <span>NY State Certified</span>
+        <span>Free Initial Consultation</span>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-label-col">
+        <span>Manhattan · New York City · Est. 2001</span>
+      </div>
+
+      <div class="hero-text">
+        <div>
+          <p class="hero-eyebrow">NYC's Boutique IVF Clinic</p>
+          <h1 class="hero-h1">
+            Every<br />family's<br />dream<br />deserves<br /><em
+              >a champion.</em
+            >
+          </h1>
+        </div>
+        <div>
+          <p class="hero-sub">
+            At MRM, you're never a number. Dr. Hanna personally attends every
+            patient — every monitoring visit, retrieval, and transfer — with
+            pregnancy rates among the highest in New York.
+          </p>
+          <div class="hero-actions">
+            <a href="tel:2127940080" class="btn-fill">Book a free consult</a>
+            <a href="#services" class="btn-outline">Our services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stat">
+        <p class="stat-top-label">
+          Clinical success rate · women 35–37 · own eggs
+        </p>
+        <div class="stat-main">
+          <div class="stat-pct">58%</div>
+          <div class="stat-pct-label">
+            IVF pregnancy rate<br />per treatment cycle
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-compare">
+            National average for the same age group:<br />
+            <strong>37.8% — we're 20 points ahead.</strong>
+          </div>
+        </div>
+        <div class="stat-certs">
+          <span class="cert">SART</span>
+          <span class="cert">Joint Commission</span>
+          <span class="cert">FDA Certified</span>
+          <span class="cert">NY State</span>
+        </div>
+        <div class="stat-pct" style="display: none">58</div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-stat-pill">
+          <div class="pill-num">50%</div>
+          <div class="pill-label">Success rate<br />ages 38–40</div>
+        </div>
+        <div class="hero-stat-pill">
+          <div class="pill-num">2001</div>
+          <div class="pill-label">Helping families<br />since</div>
+        </div>
+        <div class="hero-stat-pill">
+          <div class="pill-num">1 MD</div>
+          <div class="pill-label">Your doctor,<br />every visit</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">What we treat</p>
+          <h2 class="section-h2">
+            Comprehensive fertility<br />care under one roof
+          </h2>
+        </div>
+        <p class="section-desc">
+          MRM is a fully certified, in-office IVF center offering the full
+          spectrum of reproductive services — with the personal touch of a
+          boutique practice that large clinics simply can't match.
+        </p>
+      </div>
+
+      <div class="services-bento">
+        <div class="svc teal-bg tall">
+          <div>
+            <p class="svc-index">01</p>
+          </div>
+          <div>
+            <h3 class="svc-title">In Vitro<br />Fertilization<br />(IVF)</h3>
+            <p class="svc-body">
+              State-of-the-art in-office IVF — no hospital, no rotating doctors.
+              Dr. Hanna personally oversees monitoring, retrieval, and embryo
+              transfer for every patient.
+            </p>
+            <a href="#" class="svc-rate">58% success rate →</a>
+          </div>
+          <div class="svc-big-num">01</div>
+        </div>
+
+        <div class="svc">
+          <p class="svc-index">02</p>
+          <div>
+            <h3 class="svc-title">Female Infertility</h3>
+            <p class="svc-body">
+              Expert diagnosis of ovulatory disorders, tubal damage, and uterine
+              conditions.
+            </p>
+            <a href="#" class="svc-rate">Learn more →</a>
+          </div>
+          <div class="svc-big-num">02</div>
+        </div>
+
+        <div class="svc gold-bg">
+          <p class="svc-index">03</p>
+          <div>
+            <h3 class="svc-title">Recurrent<br />Miscarriage</h3>
+            <p class="svc-body">
+              Deep diagnostic workup and targeted treatment for couples
+              experiencing pregnancy loss.
+            </p>
+            <a href="#" class="svc-rate">Learn more →</a>
+          </div>
+          <div class="svc-big-num">03</div>
+        </div>
+
+        <div class="svc">
+          <p class="svc-index">04</p>
+          <div>
+            <h3 class="svc-title">Egg Quality</h3>
+            <p class="svc-body">
+              Hormonal and oocyte quality interventions addressing 30%+ of
+              infertility cases.
+            </p>
+            <a href="#" class="svc-rate">Learn more →</a>
+          </div>
+          <div class="svc-big-num">04</div>
+        </div>
+
+        <div class="svc">
+          <p class="svc-index">05</p>
+          <div>
+            <h3 class="svc-title">Egg Donation</h3>
+            <p class="svc-body">
+              Compassionate donor programs with careful matching, fully
+              coordinated at MRM.
+            </p>
+            <a href="#" class="svc-rate">Learn more →</a>
+          </div>
+          <div class="svc-big-num">05</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-left">
+        <p class="about-eyebrow">Meet Dr. Hanna</p>
+        <blockquote class="about-quote">
+          "I am an MRM Medical Director and a mother of two boys — and I believe
+          in the dream too."
+        </blockquote>
+        <p class="about-bio">
+          <strong>Hanna Jesionowska, MD</strong> founded Manhattan Reproductive
+          Medicine in 2001 as a deliberate alternative to the impersonal care of
+          large fertility hospitals. At MRM, one doctor means one vision of care
+          — from your first consultation through retrieval and the moment you
+          see a heartbeat. Patients travel from across the US and
+          internationally to work with Dr. Hanna.
+        </p>
+      </div>
+      <div class="about-right">
+        <p class="about-right-label">Credentials and certifications</p>
+        <div class="credentials">
+          <div class="cred-item">
+            <div class="cred-mark"></div>
+            <div>
+              <div class="cred-text">MRM Medical Director</div>
+              <div class="cred-sub">Manhattan Reproductive Medicine, P.C.</div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-mark"></div>
+            <div>
+              <div class="cred-text">SART Member Clinic</div>
+              <div class="cred-sub">
+                Society for Assisted Reproductive Technology
+              </div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-mark"></div>
+            <div>
+              <div class="cred-text">Joint Commission Accredited</div>
+              <div class="cred-sub">
+                The Gold Seal of Approval in healthcare
+              </div>
+            </div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-mark"></div>
+            <div>
+              <div class="cred-text">NY State &amp; FDA Certified</div>
+              <div class="cred-sub">In-office IVF laboratory facility</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-header">
+        <div>
+          <p class="section-eyebrow">Patient stories</p>
+          <h2 class="section-h2" style="font-size: clamp(24px, 2.8vw, 36px)">
+            Families we've helped build
+          </h2>
+        </div>
+        <a href="#contact" class="btn-fill" style="white-space: nowrap"
+          >Share your story</a
+        >
+      </div>
+
+      <div class="t-grid">
+        <div class="t-card featured">
+          <div class="t-stars">
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+          </div>
+          <p class="t-text">
+            "When I came to Doctor Hanna's office after unsuccessful treatments
+            elsewhere, I finally felt at home. Everyone from the staff was so
+            helpful — I always had someone to call, any time. I'm now 7 weeks
+            pregnant. Something I thought might never happen."
+          </p>
+          <p class="t-author">— Beata, 36 · Patient since 2019</p>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+          </div>
+          <p class="t-text">
+            "We found Dr. Hanna after years of trying. Her nursing staff —
+            Amanda and Belkis — stay in touch every single day of the year.
+            We're finally expecting."
+          </p>
+          <p class="t-author">— Anonymous couple · NYC</p>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+            <div class="t-star"></div>
+          </div>
+          <p class="t-text">
+            "After being referred by a friend, my experience was everything I
+            needed — professional, warm, and successful. I'm 3 months pregnant
+            and couldn't be happier."
+          </p>
+          <p class="t-author">— Anonymous patient · International</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="process-header">
+        <h2 class="process-h2">Your journey at MRM</h2>
+        <p class="process-note">
+          Every step attended personally by Dr. Hanna — no handoffs, no
+          strangers.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Free consultation</div>
+          <p class="step-desc">
+            An honest conversation with Dr. Hanna about your history, your
+            options, and realistic expectations.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Diagnostic workup</div>
+          <p class="step-desc">
+            Comprehensive testing to understand the exact nature of the
+            fertility challenge — nothing left unexamined.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Personalised treatment</div>
+          <p class="step-desc">
+            A treatment plan built specifically for you — not a protocol off a
+            shelf. Adjusted in real time as your cycle progresses.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-title">Ongoing support</div>
+          <p class="step-desc">
+            Daily nursing contact through your cycle. Dr. Hanna personally
+            performs retrieval and embryo transfer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="cta-left">
+        <h2 class="cta-h2">
+          Take the first step<br />toward <em>your family.</em>
+        </h2>
+        <p class="cta-sub">
+          The consultation is free and without obligation. Speak directly with
+          our team to ask questions, understand your options, and meet the
+          practice — before committing to anything.
+        </p>
+        <a href="tel:2127940080" class="btn-fill" style="display: inline-block"
+          >Call us today</a
+        >
+      </div>
+      <div class="cta-right">
+        <div>
+          <p class="phone-label">Phone</p>
+          <a href="tel:2127940080" class="phone-display">212-794-0080</a>
+        </div>
+        <div class="address-block">
+          <p><strong>Manhattan Reproductive Medicine, P.C.</strong></p>
+          <p>Park Avenue, New York City, NY</p>
+          <p style="margin-top: 8px">
+            Monday–Friday · 7:00 am – 5:00 pm<br />Saturday · By appointment
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-mark">Manhattan Reproductive Medicine · Est. 2001</div>
+      <div class="footer-right">
+        <a href="#">Privacy policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">HIPAA notice</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </body>
+</html>

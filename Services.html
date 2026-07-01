@@ -1,0 +1,1429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services · MIRI · Manhattan Reproductive Medicine</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #faf7f2;
+        color: #14120f;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .full-width {
+        width: 100%;
+        padding: 0 60px;
+      }
+
+      /* ── NAVIGATION ── */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 60px;
+        background: #faf7f2;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        width: 100%;
+      }
+      .nav-wordmark {
+        animation: float 3s ease-in-out infinite;
+        display: block;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .nav-wordmark img {
+        height: 95px;
+        width: auto;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 400;
+        color: #7a7060;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #1b5c6b;
+      }
+      .nav-links a.active {
+        color: #1b5c6b;
+        font-weight: 500;
+      }
+      .nav-cta {
+        background: #1b5c6b !important;
+        color: #fff !important;
+        padding: 10px 22px !important;
+        border-radius: 2px;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .nav-cta:hover {
+        background: #0d3540 !important;
+      }
+
+      /* ── PAGE HEADER ── */
+      .page-header {
+        padding: 48px 0 32px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-bottom: 48px;
+      }
+      .page-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #c9a96e;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .page-h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(36px, 4.5vw, 56px);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+      }
+      .page-h1 em {
+        font-style: italic;
+        color: #1b5c6b;
+      }
+      .page-sub {
+        font-size: 16px;
+        color: #7a7060;
+        font-weight: 300;
+        margin-top: 12px;
+        max-width: 600px;
+      }
+
+      /* ── SERVICES GRID ── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 60px;
+      }
+      .service-card {
+        background: #fff;
+        padding: 32px 28px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #c9a96e;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+      .service-card:hover {
+        background: #1b5c6b;
+        box-shadow: 0 12px 32px rgba(27, 92, 107, 0.25);
+        transform: translateY(-6px);
+        border-color: #1b5c6b;
+      }
+      .service-card .icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 14px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+      .service-card:hover .icon {
+        transform: scale(1.1) rotate(-4deg);
+      }
+      .service-card .icon svg {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke: #1b5c6b;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke 0.3s ease;
+      }
+      .service-card:hover .icon svg {
+        stroke: #c9a96e;
+      }
+      .service-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 8px;
+        color: #1b5c6b;
+        transition: color 0.3s ease;
+      }
+      .service-card:hover h3 {
+        color: #fff;
+      }
+      .service-card p {
+        font-size: 14px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.7;
+        flex: 1;
+        transition: color 0.3s ease;
+      }
+      .service-card:hover p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .service-card .learn-more {
+        margin-top: 16px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1b5c6b;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+      }
+      .service-card:hover .learn-more {
+        color: #c9a96e;
+        gap: 14px;
+      }
+      .service-card .learn-more::after {
+        content: "→";
+        font-size: 14px;
+        transition: transform 0.3s ease;
+      }
+      .service-card:hover .learn-more::after {
+        transform: translateX(4px);
+      }
+
+      /* ── DETAILED SERVICES ── */
+      .service-detail {
+        padding: 56px 48px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+        transition: all 0.4s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+      }
+      .service-detail:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      }
+      .service-detail.light {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .service-detail.light:hover {
+        border-color: #c9a96e;
+        background: #1b5c6b;
+      }
+      .service-detail.light:hover h2 {
+        color: #fff;
+      }
+      .service-detail.light:hover p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .service-detail.light:hover ul li {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .service-detail.light:hover .highlight-box {
+        background: rgba(201, 169, 110, 0.2);
+      }
+      .service-detail.light:hover .highlight-box p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .service-detail.light:hover strong {
+        color: #fff;
+      }
+      .service-detail.dark {
+        background: #1b5c6b;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .service-detail.dark:hover {
+        border-color: #c9a96e;
+        background: #0d3540;
+      }
+      .service-detail .icon-large {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+      .service-detail:hover .icon-large {
+        transform: scale(1.05) rotate(-4deg);
+      }
+      .service-detail .icon-large svg {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke 0.3s ease;
+      }
+      .service-detail.light .icon-large svg {
+        stroke: #1b5c6b;
+      }
+      .service-detail.light:hover .icon-large svg {
+        stroke: #c9a96e;
+      }
+      .service-detail.dark .icon-large svg {
+        stroke: #c9a96e;
+      }
+      .service-detail .content {
+        flex: 1;
+      }
+      .service-detail.light h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        font-weight: 400;
+        color: #1b5c6b;
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+      }
+      .service-detail.dark h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .service-detail h2 .gold {
+        color: #c9a96e;
+      }
+      .service-detail.light p {
+        font-size: 15px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.8;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+      .service-detail.dark p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 300;
+        line-height: 1.8;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+      .service-detail.dark:hover p {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .service-detail p strong {
+        color: #14120f;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .service-detail.light:hover p strong {
+        color: #fff;
+      }
+      .service-detail.dark p strong {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .service-detail ul {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      .service-detail ul li {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.7;
+        padding: 4px 0 4px 24px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .service-detail.light ul li {
+        color: #7a7060;
+      }
+      .service-detail.light:hover ul li {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .service-detail.dark ul li {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .service-detail.dark:hover ul li {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .service-detail ul li::before {
+        content: "◆";
+        color: #c9a96e;
+        position: absolute;
+        left: 0;
+        font-size: 10px;
+        top: 6px;
+      }
+      .service-detail .highlight-box {
+        padding: 16px 20px;
+        border-radius: 6px;
+        margin: 12px 0;
+        border-left: 3px solid #c9a96e;
+        transition: all 0.3s ease;
+      }
+      .service-detail.light .highlight-box {
+        background: #f0e4cc;
+      }
+      .service-detail.dark .highlight-box {
+        background: rgba(201, 169, 110, 0.15);
+      }
+      .service-detail .highlight-box p {
+        margin-bottom: 0;
+      }
+      .service-detail.light .highlight-box p {
+        color: #14120f;
+        transition: color 0.3s ease;
+      }
+      .service-detail.light:hover .highlight-box p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .service-detail.dark .highlight-box p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .service-detail .highlight-box strong {
+        color: #1b5c6b;
+        transition: color 0.3s ease;
+      }
+      .service-detail.light:hover .highlight-box strong {
+        color: #fff;
+      }
+      .service-detail.dark .highlight-box strong {
+        color: #c9a96e;
+      }
+
+      /* ── TESTIMONIAL CAROUSEL ── */
+      .testimonials-section {
+        padding: 60px 0;
+        background: #1b5c6b;
+        border-radius: 8px;
+        margin-bottom: 60px;
+        position: relative;
+        user-select: none;
+      }
+      .testimonials-section .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 0 20px;
+      }
+      .testimonials-section .section-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: #fff;
+      }
+      .testimonials-section .section-header .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .testimonials-section .section-header .stars {
+        color: #c9a96e;
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+      .testimonials-section .section-header .rating-text {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px;
+        cursor: grab;
+      }
+      .carousel-wrapper:active {
+        cursor: grabbing;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        gap: 20px;
+        align-items: stretch;
+        will-change: transform;
+      }
+
+      .testimonial-card {
+        background: #f0e4cc;
+        padding: 28px 24px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 calc(33.333% - 14px);
+        min-width: 0;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        border-color: #c9a96e;
+      }
+      .testimonial-card .stars {
+        color: #c9a96e;
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-bottom: 4px;
+        flex-shrink: 0;
+      }
+      .testimonial-card .rating-label {
+        font-size: 11px;
+        color: #7a7060;
+        font-weight: 400;
+        margin-bottom: 6px;
+        flex-shrink: 0;
+      }
+      .testimonial-card .quote-icon {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        color: #c9a96e;
+        line-height: 0.8;
+        margin-bottom: 6px;
+        opacity: 0.5;
+        flex-shrink: 0;
+      }
+      .testimonial-card blockquote {
+        font-size: 14px;
+        color: #14120f;
+        font-weight: 300;
+        line-height: 1.8;
+        font-style: italic;
+        flex: 1;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+      }
+      .testimonial-card .author {
+        font-size: 13px;
+        color: #1b5c6b;
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-top: auto;
+      }
+      .testimonial-card .author::before {
+        content: "— ";
+        color: #c9a96e;
+      }
+
+      /* Carousel Controls */
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .carousel-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background: transparent;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-btn:hover {
+        background: #c9a96e;
+        border-color: #c9a96e;
+        color: #1b5c6b;
+        transform: scale(1.05);
+      }
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .carousel-dot.active {
+        background: #c9a96e;
+        transform: scale(1.3);
+      }
+      .carousel-dot:hover {
+        background: #c9a96e;
+      }
+
+      /* ── CTA SECTION ── */
+      .cta-section {
+        padding: 0 60px 60px;
+      }
+      .cta-wrapper {
+        background: #f0e4cc;
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        max-width: 1400px;
+        margin: 0 auto;
+        transition: all 0.4s ease;
+      }
+      .cta-wrapper:hover {
+        box-shadow: 0 8px 32px rgba(27, 92, 107, 0.3);
+        transform: translateY(-4px);
+      }
+      .cta-left {
+        padding: 56px 48px;
+        border-right: 1px solid rgba(201, 169, 110, 0.3);
+        transition: background 0.3s ease;
+      }
+      .cta-left:hover {
+        background: rgba(201, 169, 110, 0.08);
+      }
+      .cta-left .cta-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #1b5c6b;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .cta-left h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #1b5c6b;
+        margin-bottom: 16px;
+      }
+      .cta-left p {
+        font-size: 15px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.8;
+        margin-bottom: 28px;
+        max-width: 500px;
+      }
+      .btn-fill {
+        background: #1b5c6b;
+        color: #fff;
+        border: none;
+        padding: 14px 32px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .btn-fill:hover {
+        background: #0d3540;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(27, 92, 107, 0.3);
+      }
+      .cta-right {
+        padding: 56px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        transition: background 0.3s ease;
+      }
+      .cta-right:hover {
+        background: rgba(201, 169, 110, 0.08);
+      }
+      .cta-right .label {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #7a7060;
+        font-weight: 400;
+        margin-bottom: 2px;
+      }
+      .cta-right .phone {
+        font-family: "Playfair Display", serif;
+        font-size: 34px;
+        color: #1b5c6b;
+        font-weight: 700;
+        letter-spacing: -1px;
+        transition: color 0.3s ease;
+      }
+      .cta-right .phone:hover {
+        color: #0d3540;
+      }
+      .cta-right .address {
+        padding-top: 16px;
+        border-top: 1px solid rgba(201, 169, 110, 0.4);
+      }
+      .cta-right .address p {
+        font-size: 14px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .cta-right .address strong {
+        color: #14120f;
+        font-weight: 500;
+      }
+      .cta-right .address .hours {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #7a7060;
+        opacity: 0.7;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #14120f;
+        padding: 40px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .footer-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-right {
+        display: flex;
+        gap: 24px;
+      }
+      .footer-right a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+      }
+      .footer-right a:hover {
+        color: #c9a96e;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .full-width {
+          padding: 0 30px;
+        }
+        nav {
+          padding: 4px 30px;
+        }
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cta-section {
+          padding: 0 30px 40px;
+        }
+        footer {
+          padding: 30px;
+        }
+        .service-detail {
+          padding: 40px 32px;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .testimonial-card {
+          flex: 0 0 calc(50% - 10px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .full-width {
+          padding: 0 20px;
+        }
+        nav {
+          padding: 12px 20px;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-wrapper {
+          grid-template-columns: 1fr;
+        }
+        .cta-left {
+          border-right: none;
+          border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+        }
+        .cta-left {
+          padding: 40px 32px;
+        }
+        .cta-right {
+          padding: 32px;
+        }
+        .cta-right .phone {
+          font-size: 28px;
+        }
+        .page-header {
+          padding: 32px 0 24px;
+        }
+        footer {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+          padding: 32px 24px;
+        }
+        .service-detail {
+          padding: 32px 24px;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .testimonial-card {
+          flex: 0 0 calc(100% - 0px);
+          padding: 20px 18px;
+        }
+        .testimonial-card blockquote {
+          font-size: 13px;
+          -webkit-line-clamp: 10;
+        }
+        .testimonials-section {
+          padding: 40px 16px;
+        }
+        .carousel-wrapper {
+          padding: 0 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .full-width {
+          padding: 0 16px;
+        }
+        nav {
+          padding: 10px 16px;
+        }
+        .nav-wordmark img {
+          height: 70px;
+        }
+        .cta-left {
+          padding: 32px 24px;
+        }
+        .cta-right {
+          padding: 32px 24px;
+        }
+        .cta-left h2 {
+          font-size: 28px;
+        }
+        .cta-left p {
+          font-size: 14px;
+        }
+        .cta-right .phone {
+          font-size: 26px;
+        }
+        .btn-fill {
+          width: 100%;
+          text-align: center;
+        }
+        .service-detail {
+          padding: 24px 16px;
+        }
+        .testimonial-card {
+          padding: 16px 14px;
+        }
+        .testimonial-card blockquote {
+          font-size: 12px;
+          line-height: 1.6;
+          -webkit-line-clamp: 12;
+        }
+        .testimonial-card .stars {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .cta-left h2 {
+          font-size: 24px;
+        }
+        .cta-right .phone {
+          font-size: 22px;
+        }
+        .nav-wordmark img {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAV ── -->
+    <nav>
+      <a href="index.html" class="nav-wordmark">
+        <img
+          src="hanna.png"
+          alt="Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD"
+        />
+      </a>
+      <div class="nav-links">
+        <a href="Services.html" class="active">Services</a>
+        <a href="About-Us.html">About Dr. Hanna</a>
+        <a href="Stories.html">Stories</a>
+        <a href="Contact-Us.html">Contact</a>
+        <a href="tel:2127940080" class="nav-cta">Free Consultation</a>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ── -->
+    <section class="full-width">
+      <div class="page-header">
+        <p class="page-eyebrow">What We Treat</p>
+        <h1 class="page-h1">
+          Comprehensive <em>fertility</em><br />care under one roof
+        </h1>
+        <p class="page-sub">
+          MIRI is a fully certified, in-office IVF center offering the full
+          spectrum of reproductive services — with the personal touch of a
+          boutique practice that large clinics simply can't match.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── SERVICES GRID ── -->
+    <section class="full-width">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M5.3 18.3c.8-1.5 2.8-2.3 6.7-2.3s5.9.8 6.7 2.3" />
+            </svg>
+          </div>
+          <h3>Female Infertility</h3>
+          <p>
+            Expert diagnosis of ovulatory disorders, tubal damage, and uterine
+            conditions. Treatment with medications, surgery, IUI or IVF.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M12 8v4" />
+              <path d="M12 16h.01" />
+            </svg>
+          </div>
+          <h3>Miscarriages</h3>
+          <p>
+            Deep diagnostic workup and targeted treatment for couples
+            experiencing pregnancy loss. Advanced understanding of maternal
+            Immune System role.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+              <path d="M16 3l3 3-3 3" />
+              <path d="M8 3l-3 3 3 3" />
+            </svg>
+          </div>
+          <h3>Single Women Motherhood</h3>
+          <p>
+            We assist women without partners in her decisions on motherhood.
+            Working with all sperm banks licensed in New York State.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 8v8H3V8h18z" />
+              <path d="M7 12h2" />
+              <path d="M15 12h2" />
+              <path d="M11 12h2" />
+              <circle cx="12" cy="16" r="1" />
+            </svg>
+          </div>
+          <h3>Semen Analysis</h3>
+          <p>
+            Our office performs semen analysis for male fertility testing and
+            sperm quality. Report ready in two days after test.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M5.3 18.3c.8-1.5 2.8-2.3 6.7-2.3s5.9.8 6.7 2.3" />
+              <path d="M16 3l3 3-3 3" />
+              <path d="M8 3l-3 3 3 3" />
+            </svg>
+          </div>
+          <h3>Male Infertility</h3>
+          <p>
+            Abnormal semen analysis is responsible for approximately half of all
+            infertility cases. TESA procedure offers 50% pregnancy rates.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M12 8v4" />
+              <path d="M12 12h4" />
+            </svg>
+          </div>
+          <h3>Inseminations</h3>
+          <p>
+            IUI is most effective treatment for couples with minor sperm
+            deficiencies, erectile dysfunction and for women using frozen donor
+            sperm.
+          </p>
+          <span class="learn-more">Learn More</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DETAILED SERVICES ── -->
+    <section class="full-width">
+      <div class="service-detail light">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M5.3 18.3c.8-1.5 2.8-2.3 6.7-2.3s5.9.8 6.7 2.3" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Female <span class="gold">Infertility</span></h2>
+          <p>
+            Female infertility is caused by poor ovulation, damaged fallopian
+            tubes or problems with the womb. After infertility testing, women
+            can be treated with medications, surgery, IUI or IVF.
+          </p>
+          <ul>
+            <li>
+              <strong>Clomid Pills</strong> — prescribed to improve egg
+              ovulation, takes 2-3 months to conceive
+            </li>
+            <li>
+              <strong>Damaged Fallopian Tubes</strong> — tubal infertility is
+              best treated with IVF
+            </li>
+            <li>
+              <strong>Ectopic Pregnancy</strong> — unruptured ectopic is often
+              treated with medication
+            </li>
+            <li>
+              <strong>Endometriosis</strong> — more than 50% women with minimal
+              to mild endometriosis have a baby with IVF
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-detail dark">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M12 8v4" />
+            <path d="M12 16h.01" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Miscarriages <span class="gold">(Loss of Pregnancy)</span></h2>
+          <p>
+            Miscarriages and pregnancy losses at different stages of pregnancy
+            are on the increase. Most Ob/Gyn doctors have no time and no
+            experience to treat patients who lose every pregnancy they conceive.
+          </p>
+          <div class="highlight-box">
+            <p>
+              <strong
+                >"When a routine evaluation 'miscarriage workup' turns negative,
+                problem remains unsolved."</strong
+              >
+            </p>
+          </div>
+          <p>
+            <strong>Recent advances</strong> in understanding maternal Immune
+            System role in early pregnancy gave much-needed insight into
+            demystifying nature of many unexplained miscarriages.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-detail light">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+            <path d="M16 3l3 3-3 3" />
+            <path d="M8 3l-3 3 3 3" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Single Women <span class="gold">Motherhood</span></h2>
+          <p>
+            Growing generation of single career women are reaching their late
+            30s unmarried but still desperate to become mothers. Many are
+            embarking on parenthood alone.
+          </p>
+          <p>
+            <strong>'Social' Oocyte Freezing</strong> — Egg freezing for
+            'social' reason became the newest service for ART patients.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-detail dark">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 8v8H3V8h18z" />
+            <path d="M7 12h2" />
+            <path d="M15 12h2" />
+            <path d="M11 12h2" />
+            <circle cx="12" cy="16" r="1" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Semen <span class="gold">Analysis</span></h2>
+          <p>
+            Our office performs semen analysis for male fertility testing and
+            sperm quality. Please call our office 212-794-0080 Monday-Friday to
+            schedule appointment.
+          </p>
+          <p>
+            We provide sterile cup for the specimen collection that can be
+            produced at home or in our office.
+          </p>
+          <p>
+            <strong>Report is ready in two days after test</strong> and doctor
+            will answer all questions you may have.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-detail light">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M5.3 18.3c.8-1.5 2.8-2.3 6.7-2.3s5.9.8 6.7 2.3" />
+            <path d="M16 3l3 3-3 3" />
+            <path d="M8 3l-3 3 3 3" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Male <span class="gold">Infertility</span></h2>
+          <p>
+            Male infertility is diagnosed by abnormal semen analysis and is
+            responsible for approximately half of all infertility cases.
+          </p>
+          <p>
+            <strong>No Sperm (Azoospermia) and TESA</strong> — TESA procedure
+            offers <strong>50% pregnancy rates</strong> for azoospermia in men.
+          </p>
+        </div>
+      </div>
+
+      <div class="service-detail dark">
+        <div class="icon-large">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M12 8v4" />
+            <path d="M12 12h4" />
+          </svg>
+        </div>
+        <div class="content">
+          <h2>Intrauterine <span class="gold">Inseminations</span></h2>
+          <p>
+            Intrauterine Insemination (IUI) is a medical procedure to introduce
+            sperm separated from seminal fluid into women uterus. Minimum 5-7
+            million moving sperm is needed.
+          </p>
+          <div class="highlight-box">
+            <p>
+              <strong>Pregnancy Rates:</strong> Chances for each IUI treatment
+              to produce pregnancy is 15%.
+            </p>
+          </div>
+          <p>
+            IUI is most effective for couples with minor sperm deficiencies,
+            erectile dysfunction and for women using frozen donor sperm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA SECTION ── -->
+    <section class="cta-section full-width" id="contact">
+      <div class="cta-wrapper">
+        <div class="cta-left">
+          <p class="cta-label">Take the first step</p>
+          <h2>Take the first step<br />toward your family.</h2>
+          <p>
+            The consultation is free and without obligation. Speak directly with
+            our team to ask questions, understand your options, and meet the
+            practice — before committing to anything.
+          </p>
+          <a href="tel:2127940080" class="btn-fill">Call us today</a>
+        </div>
+        <div class="cta-right">
+          <div>
+            <p class="label">Phone</p>
+            <a href="tel:2127940080" class="phone">212-794-0080</a>
+          </div>
+          <div class="address">
+            <p><strong>Manhattan Reproductive Medicine, P.C.</strong></p>
+            <p>Park Avenue, New York City, NY</p>
+            <p class="hours">
+              Monday–Friday · 7:00 am – 5:00 pm<br />Saturday · By appointment
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-mark">
+        MIRI · Manhattan Reproductive Medicine · Est. 2001
+      </div>
+      <div class="footer-right">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">HIPAA</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      // ── TESTIMONIAL CAROUSEL ──
+      const track = document.getElementById("carouselTrack");
+      const wrapper = document.getElementById("carouselWrapper");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dotsContainer = document.getElementById("carouselDots");
+
+      let currentIndex = 0;
+      let visibleCards = 3;
+      let totalCards = document.querySelectorAll(".testimonial-card").length;
+      let autoSlideInterval = null;
+      let isDragging = false;
+      let startX = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+      let animationID = 0;
+
+      function updateVisibleCards() {
+        if (window.innerWidth < 768) {
+          visibleCards = 1;
+        } else if (window.innerWidth < 1024) {
+          visibleCards = 2;
+        } else {
+          visibleCards = 3;
+        }
+        updateCarousel();
+      }
+
+      function getCardWidth() {
+        const cards = document.querySelectorAll(".testimonial-card");
+        if (cards.length === 0) return 0;
+        const wrapperWidth = wrapper.offsetWidth - 40;
+        const gap = 20;
+        const cardWidth =
+          (wrapperWidth - (visibleCards - 1) * gap) / visibleCards;
+        return cardWidth;
+      }
+
+      function updateCarousel() {
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+        const cardWidth = getCardWidth();
+        const gap = 20;
+        const offset = currentIndex * (cardWidth + gap);
+
+        track.style.transition =
+          "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+      }
+
+      function updateDots() {
+        const totalDots = Math.ceil(totalCards / visibleCards);
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement("button");
+          dot.className =
+            "carousel-dot" +
+            (i === Math.floor(currentIndex / visibleCards) ? " active" : "");
+          dot.addEventListener("click", () => {
+            currentIndex = i * visibleCards;
+            updateCarousel();
+            resetAutoSlide();
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function nextSlide() {
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+        if (currentIndex < maxIndex) {
+          currentIndex += visibleCards;
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+          updateCarousel();
+          resetAutoSlide();
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex -= visibleCards;
+          if (currentIndex < 0) currentIndex = 0;
+          updateCarousel();
+          resetAutoSlide();
+        }
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+
+      // ── Mouse Drag ──
+      function dragStart(e) {
+        isDragging = true;
+        startX = e.type === "mousedown" ? e.pageX : e.touches[0].pageX;
+        track.style.transition = "none";
+        clearInterval(autoSlideInterval);
+      }
+
+      function dragMove(e) {
+        if (!isDragging) return;
+        const currentX = e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
+        const diff = currentX - startX;
+        const cardWidth = getCardWidth();
+        const gap = 20;
+        const offset = currentIndex * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset + diff * 0.5}px)`;
+      }
+
+      function dragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition =
+          "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+
+        const endX = e.type === "mouseup" ? e.pageX : e.changedTouches[0].pageX;
+        const diff = endX - startX;
+        const threshold = 50;
+
+        if (diff < -threshold) {
+          nextSlide();
+        } else if (diff > threshold) {
+          prevSlide();
+        } else {
+          updateCarousel();
+        }
+        resetAutoSlide();
+      }
+
+      // ── Event Listeners ──
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+
+      // Mouse drag events
+      wrapper.addEventListener("mousedown", dragStart);
+      window.addEventListener("mousemove", dragMove);
+      window.addEventListener("mouseup", dragEnd);
+
+      // Touch drag events
+      wrapper.addEventListener("touchstart", dragStart);
+      window.addEventListener("touchmove", dragMove);
+      window.addEventListener("touchend", dragEnd);
+
+      // Window resize
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateVisibleCards, 200);
+      });
+
+      // Initialize
+      setTimeout(() => {
+        updateVisibleCards();
+        resetAutoSlide();
+      }, 100);
+
+      // Pause on hover
+      wrapper.addEventListener("mouseenter", () => {
+        clearInterval(autoSlideInterval);
+      });
+      wrapper.addEventListener("mouseleave", resetAutoSlide);
+    </script>
+  </body>
+</html>

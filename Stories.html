@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stories · MIRI · Manhattan Reproductive Medicine</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #faf7f2;
+        color: #14120f;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .full-width {
+        width: 100%;
+        padding: 0 60px;
+      }
+
+      /* ── NAVIGATION ── */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 60px;
+        background: #faf7f2;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        width: 100%;
+      }
+
+      .nav-wordmark img {
+        height: 95px;
+        width: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 400;
+        color: #7a7060;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #1b5c6b;
+      }
+      .nav-links a.active {
+        color: #1b5c6b;
+        font-weight: 500;
+      }
+      .nav-cta {
+        background: #1b5c6b !important;
+        color: #fff !important;
+        padding: 10px 22px !important;
+        border-radius: 2px;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .nav-cta:hover {
+        background: #0d3540 !important;
+      }
+
+      /* ── PAGE HEADER ── */
+      .page-header {
+        padding: 48px 0 32px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-bottom: 48px;
+      }
+      .page-eyebrow {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #c9a96e;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .page-h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(36px, 4.5vw, 56px);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+      }
+      .page-h1 em {
+        font-style: italic;
+        color: #1b5c6b;
+      }
+      .page-sub {
+        font-size: 16px;
+        color: #7a7060;
+        font-weight: 300;
+        margin-top: 12px;
+        max-width: 600px;
+      }
+
+      /* ── HERO BANNER ── */
+      .hero-banner {
+        background: #0d3540;
+        border-radius: 8px;
+        padding: 60px 48px;
+        margin-bottom: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+      .hero-banner .hero-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: #fff;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+      .hero-banner .hero-text h2 .gold {
+        color: #c9a96e;
+      }
+      .hero-banner .hero-text p {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+        margin-top: 10px;
+        max-width: 500px;
+      }
+      .hero-banner .hero-icon {
+        font-size: 64px;
+        color: #c9a96e;
+        opacity: 0.6;
+      }
+
+      /* ── IMAGE GALLERY (Masonry Style - Full Images) ── */
+      .gallery-section {
+        margin-bottom: 60px;
+      }
+      .gallery-section h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 400;
+        color: #1b5c6b;
+        margin-bottom: 24px;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        grid-auto-rows: auto;
+      }
+      .gallery-grid .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        background: #1b5c6b;
+        aspect-ratio: auto;
+      }
+      .gallery-grid .gallery-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        z-index: 2;
+      }
+      .gallery-grid .gallery-item img {
+        width: 100%;
+        height: 45vh;
+        display: block;
+        object-fit: cover;
+        background: #faf7f2;
+        transition: transform 0.4s ease;
+      }
+      .gallery-grid .gallery-item:hover img {
+        transform: scale(1.03);
+      }
+      .gallery-grid .gallery-item .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        padding: 20px 16px 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .gallery-grid .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+      .gallery-grid .gallery-item .overlay span {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 300;
+      }
+      /* Masonry layout - different sizes */
+      .gallery-grid .gallery-item:nth-child(1) {
+        grid-column: span 2;
+      }
+      .gallery-grid .gallery-item:nth-child(3) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(5) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(7) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(9) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(11) {
+        grid-column: span 2;
+      }
+      .gallery-grid .gallery-item:nth-child(14) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(18) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(21) {
+        grid-row: span 1;
+      }
+      .gallery-grid .gallery-item:nth-child(25) {
+        grid-column: span 2;
+      }
+
+      /* ── LIGHTBOX / MODAL ── */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
+      }
+      .lightbox .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #fff;
+        font-size: 40px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        background: none;
+        border: none;
+      }
+      .lightbox .close-btn:hover {
+        transform: rotate(90deg);
+      }
+      .lightbox .prev-btn,
+      .lightbox .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 40px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+      .lightbox .prev-btn:hover,
+      .lightbox .next-btn:hover {
+        color: #c9a96e;
+      }
+      .lightbox .prev-btn {
+        left: 20px;
+      }
+      .lightbox .next-btn {
+        right: 20px;
+      }
+      .lightbox .counter {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      /* ── STORIES / BLOG GRID ── */
+      .stories-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+      .story-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        cursor: default;
+      }
+      .story-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        border-color: #c9a96e;
+      }
+      .story-card .story-image {
+        height: 450px;
+        background: #1b5c6b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 300;
+        position: relative;
+        overflow: hidden;
+      }
+      .story-card .story-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .story-card .story-image .date-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: #c9a96e;
+        color: #1b5c6b;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .story-card .story-content {
+        padding: 24px 24px 28px;
+      }
+      .story-card .story-content .category {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #c9a96e;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .story-card .story-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #1b5c6b;
+        margin-bottom: 8px;
+        transition: color 0.3s ease;
+      }
+      .story-card:hover .story-content h3 {
+        color: #c9a96e;
+      }
+      .story-card .story-content p {
+        font-size: 14px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+      .story-card .story-content .read-more {
+        font-size: 12px;
+        font-weight: 500;
+        color: #1b5c6b;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+      }
+      .story-card:hover .story-content .read-more {
+        color: #c9a96e;
+        gap: 12px;
+      }
+      .story-card .story-content .read-more::after {
+        content: "→";
+        transition: transform 0.3s ease;
+      }
+      .story-card:hover .story-content .read-more::after {
+        transform: translateX(4px);
+      }
+
+      /* ── TESTIMONIAL CAROUSEL ── */
+      .testimonials-section {
+        padding: 60px 0;
+        background: #1b5c6b;
+        border-radius: 8px;
+        margin-bottom: 60px;
+        position: relative;
+        user-select: none;
+      }
+      .testimonials-section .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 0 20px;
+      }
+      .testimonials-section .section-header h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: #fff;
+      }
+      .testimonials-section .section-header .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+      .testimonials-section .section-header .stars {
+        color: #c9a96e;
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+      .testimonials-section .section-header .rating-text {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px;
+        cursor: grab;
+      }
+      .carousel-wrapper:active {
+        cursor: grabbing;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        gap: 20px;
+        align-items: stretch;
+        will-change: transform;
+      }
+
+      .testimonial-card {
+        background: #f0e4cc;
+        padding: 28px 24px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 calc(33.333% - 14px);
+        min-width: 0;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        border-color: #c9a96e;
+      }
+      .testimonial-card .stars {
+        color: #c9a96e;
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-bottom: 4px;
+        flex-shrink: 0;
+      }
+      .testimonial-card .rating-label {
+        font-size: 11px;
+        color: #7a7060;
+        font-weight: 400;
+        margin-bottom: 6px;
+        flex-shrink: 0;
+      }
+      .testimonial-card .quote-icon {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        color: #c9a96e;
+        line-height: 0.8;
+        margin-bottom: 6px;
+        opacity: 0.5;
+        flex-shrink: 0;
+      }
+      .testimonial-card blockquote {
+        font-size: 14px;
+        color: #14120f;
+        font-weight: 300;
+        line-height: 1.8;
+        font-style: italic;
+        flex: 1;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+      }
+      .testimonial-card .author {
+        font-size: 13px;
+        color: #1b5c6b;
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-top: auto;
+      }
+      .testimonial-card .author::before {
+        content: "— ";
+        color: #c9a96e;
+      }
+
+      /* Carousel Controls */
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .carousel-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background: transparent;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-btn:hover {
+        background: #c9a96e;
+        border-color: #c9a96e;
+        color: #1b5c6b;
+        transform: scale(1.05);
+      }
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .carousel-dot.active {
+        background: #c9a96e;
+        transform: scale(1.3);
+      }
+      .carousel-dot:hover {
+        background: #c9a96e;
+      }
+
+      /* ── CTA SECTION ── */
+      .cta-section {
+        padding: 0 60px 60px;
+      }
+      .cta-wrapper {
+        background: #f0e4cc;
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        max-width: 1400px;
+        margin: 0 auto;
+        transition: all 0.4s ease;
+      }
+      .cta-wrapper:hover {
+        box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+        transform: translateY(-4px);
+      }
+
+      .cta-left {
+        padding: 56px 48px;
+        border-right: 1px solid rgba(201, 169, 110, 0.3);
+        transition: background 0.3s ease;
+      }
+      .cta-left:hover {
+        background: rgba(201, 169, 110, 0.08);
+      }
+
+      .cta-left .cta-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #1b5c6b;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .cta-left h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #1b5c6b;
+        margin-bottom: 16px;
+      }
+
+      .cta-left p {
+        font-size: 15px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.8;
+        margin-bottom: 28px;
+        max-width: 500px;
+      }
+
+      .btn-fill {
+        background: #1b5c6b;
+        color: #fff;
+        border: none;
+        padding: 14px 32px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .btn-fill:hover {
+        background: #0d3540;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(27, 92, 107, 0.3);
+      }
+
+      .cta-right {
+        padding: 56px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        transition: background 0.3s ease;
+      }
+      .cta-right:hover {
+        background: rgba(201, 169, 110, 0.08);
+      }
+
+      .cta-right .label {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #7a7060;
+        font-weight: 400;
+        margin-bottom: 2px;
+      }
+
+      .cta-right .phone {
+        font-family: "Playfair Display", serif;
+        font-size: 34px;
+        color: #1b5c6b;
+        font-weight: 700;
+        letter-spacing: -1px;
+        transition: color 0.3s ease;
+      }
+      .cta-right .phone:hover {
+        color: #0d3540;
+      }
+
+      .cta-right .address {
+        padding-top: 16px;
+        border-top: 1px solid rgba(201, 169, 110, 0.4);
+      }
+      .cta-right .address p {
+        font-size: 14px;
+        color: #7a7060;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .cta-right .address strong {
+        color: #14120f;
+        font-weight: 500;
+      }
+      .cta-right .address .hours {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #7a7060;
+        opacity: 0.7;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #14120f;
+        padding: 40px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .footer-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-right {
+        display: flex;
+        gap: 24px;
+      }
+      .footer-right a {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+      }
+      .footer-right a:hover {
+        color: #c9a96e;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .full-width {
+          padding: 0 30px;
+        }
+        nav {
+          padding: 4px 30px;
+        }
+        .stories-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cta-section {
+          padding: 0 30px 40px;
+        }
+        footer {
+          padding: 30px;
+        }
+        .testimonial-card {
+          flex: 0 0 calc(50% - 10px);
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+        .gallery-grid .gallery-item:nth-child(1),
+        .gallery-grid .gallery-item:nth-child(11),
+        .gallery-grid .gallery-item:nth-child(25) {
+          grid-column: span 1;
+        }
+        .cta-left {
+          padding: 40px 32px;
+        }
+        .cta-right {
+          padding: 40px 32px;
+        }
+        .cta-right .phone {
+          font-size: 28px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .full-width {
+          padding: 0 20px;
+        }
+        nav {
+          padding: 12px 20px;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+        .stories-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-wrapper {
+          grid-template-columns: 1fr;
+        }
+        .cta-left {
+          border-right: none;
+          border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+        }
+        .page-header {
+          padding: 32px 0 24px;
+        }
+        footer {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+          padding: 32px 24px;
+        }
+        .testimonial-card {
+          flex: 0 0 calc(100% - 0px);
+          padding: 20px 18px;
+        }
+        .testimonial-card blockquote {
+          font-size: 13px;
+          -webkit-line-clamp: 10;
+        }
+        .testimonials-section {
+          padding: 40px 16px;
+        }
+        .carousel-wrapper {
+          padding: 0 8px;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+        .hero-banner {
+          padding: 40px 24px;
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-banner .hero-text p {
+          max-width: 100%;
+        }
+        .lightbox {
+          padding: 20px;
+        }
+        .lightbox img {
+          max-width: 95%;
+          max-height: 70vh;
+        }
+        .lightbox .prev-btn,
+        .lightbox .next-btn {
+          font-size: 28px;
+          padding: 12px;
+        }
+        .lightbox .close-btn {
+          font-size: 30px;
+          top: 10px;
+          right: 16px;
+        }
+        .cta-left {
+          padding: 32px 24px;
+        }
+        .cta-right {
+          padding: 32px 24px;
+        }
+        .cta-left h2 {
+          font-size: 28px;
+        }
+        .cta-right .phone {
+          font-size: 26px;
+        }
+        .btn-fill {
+          width: 100%;
+          text-align: center;
+        }
+        .gallery-grid .gallery-item:nth-child(1),
+        .gallery-grid .gallery-item:nth-child(11),
+        .gallery-grid .gallery-item:nth-child(25) {
+          grid-column: span 1;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .full-width {
+          padding: 0 16px;
+        }
+        nav {
+          padding: 10px 16px;
+        }
+        .cta-left {
+          padding: 24px 16px;
+        }
+        .cta-right {
+          padding: 24px 16px;
+        }
+        .testimonial-card {
+          padding: 16px 14px;
+        }
+        .testimonial-card blockquote {
+          font-size: 12px;
+          line-height: 1.6;
+          -webkit-line-clamp: 12;
+        }
+        .testimonial-card .stars {
+          font-size: 14px;
+        }
+        .story-card .story-image {
+          height: 160px;
+        }
+        .story-card .story-content {
+          padding: 18px 16px 22px;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+          gap: 10px;
+        }
+        .lightbox img {
+          max-width: 98%;
+          max-height: 60vh;
+        }
+        .lightbox .prev-btn,
+        .lightbox .next-btn {
+          font-size: 22px;
+          padding: 8px;
+        }
+        .cta-left h2 {
+          font-size: 24px;
+        }
+        .cta-right .phone {
+          font-size: 24px;
+        }
+        .cta-left p {
+          font-size: 14px;
+        }
+        .gallery-grid .gallery-item:nth-child(1),
+        .gallery-grid .gallery-item:nth-child(11),
+        .gallery-grid .gallery-item:nth-child(25) {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <style>
+        .nav-wordmark {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+      </style>
+
+      <a
+        href="index.html"
+        class="nav-wordmark"
+        style="display: block; text-decoration: none"
+      >
+        <img
+          src="hanna.png"
+          alt="Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD"
+          style="height: 95px; width: auto; display: block"
+        />
+      </a>
+      <div class="nav-links">
+        <a href="Services.html">Services</a>
+        <a href="About-Us.html">About Dr. Hanna</a>
+        <a href="Stories.html">Stories</a>
+        <a href="Contact-Us.html">Contact</a>
+        <a href="tel:2127940080" class="nav-cta">Free Consultation</a>
+      </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ── -->
+    <section class="full-width">
+      <div class="page-header">
+        <p class="page-eyebrow">Celebrating New Life</p>
+        <h1 class="page-h1">Our <em>Stories</em></h1>
+        <p class="page-sub">
+          Every baby is a miracle. Celebrate the joy of new life with these
+          beautiful photos of babies born through the care and dedication of Dr.
+          Hanna and the MIRI team.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── HERO BANNER ── -->
+    <section class="full-width">
+      <div class="hero-banner">
+        <div class="hero-text">
+          <h2>Welcoming <span class="gold">New Life</span></h2>
+          <p>
+            Each of these precious babies represents a dream fulfilled. Browse
+            through our gallery of Stories and celebrate the joy of parenthood.
+          </p>
+        </div>
+        <div class="hero-icon">
+          <i class="fas fa-baby"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IMAGE GALLERY (Full Images - No Crop) ── -->
+    <section class="full-width gallery-section">
+      <h2>Baby Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-index="0">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/double-blessing-300x300-1.jpg"
+            alt="Baby 1"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="1">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/6b7abd67-e90a-424f-b20e-bb9685ec784f.jpg"
+            alt="Baby 2"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/3d521c16-aa73-4b00-b290-c4e8b93ade2c.jpg"
+            alt="Baby 3"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Arrival2-300x300-1.jpg"
+            alt="Baby 4"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="4">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/59ada8a4-e328-4630-9799-ce7c866d58fe.jpg"
+            alt="Baby 5"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Double Blessing</span></div>
+        </div>
+        <div class="gallery-item" data-index="5">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/twins.jpg"
+            alt="Baby 6"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Twins</span></div>
+        </div>
+        <div class="gallery-item" data-index="6">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/arrival10-300x300-1.jpg"
+            alt="Baby 7"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="7">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/santa-babies-300x300-1.jpg"
+            alt="Baby 8"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Santa Babies</span></div>
+        </div>
+        <div class="gallery-item" data-index="8">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/arrival9-300x300-1.jpg"
+            alt="Baby 9"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="9">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Arrival8-300x300-1.jpg"
+            alt="Baby 10"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="10">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/adorable-twins-300x300-1.jpg"
+            alt="Baby 11"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Valentine's Baby</span></div>
+        </div>
+        <div class="gallery-item" data-index="11">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/valentines-300x300-1.jpg"
+            alt="Baby 12"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Adorable Twins</span></div>
+        </div>
+        <div class="gallery-item" data-index="12">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/mommys-little-princess-300x300-1.jpg"
+            alt="Baby 13"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Mommy's Princess</span></div>
+        </div>
+        <div class="gallery-item" data-index="13">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/happy-spring-300x300-1.jpg"
+            alt="Baby 14"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Happy Spring</span></div>
+        </div>
+        <div class="gallery-item" data-index="14">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/arrival6.jpg"
+            alt="Baby 15"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="15">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/arrival5.jpg"
+            alt="Baby 16"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="16">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/45c15314-c8ad-4b66-9139-f2a8811fe6c5.jpg"
+            alt="Baby 17"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Boy Twins</span></div>
+        </div>
+        <div class="gallery-item" data-index="17">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/arrival7-300x300-1.jpg"
+            alt="Baby 18"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="18">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Arrival1-300x300-1.jpg"
+            alt="Baby 19"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="19">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Arrival4-300x300-1.jpg"
+            alt="Baby 20"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="20">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Bailarina-300x300-1.jpg"
+            alt="Baby 21"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Little Ballerina</span></div>
+        </div>
+        <div class="gallery-item" data-index="21">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Arrival3-300x300-1.jpg"
+            alt="Baby 22"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="22">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/d4273688-c8eb-48f2-9e71-5d69419673ba.jpg"
+            alt="Baby 23"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="23">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Resized_Resized_20221108_033715.jpg"
+            alt="Baby 24"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="24">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/adorable-boy-twins-300x300-1.jpg"
+            alt="Baby 25"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="25">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/Resized_20221211_000019.jpg"
+            alt="Baby 26"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="26">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/PHOTO-2021-08-08-20-26-03.jpg"
+            alt="Baby 27"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="27">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/23b49fed-b5ee-485e-a73c-440d8a527d91.jpg"
+            alt="Baby 28"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="28">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/PHOTO-2018-08-28-20-24-45.jpg"
+            alt="Baby 29"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="29">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/cb3a3697-15d0-45d4-b18b-a3c1cbc2303d.jpg"
+            alt="Baby 30"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="30">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/image.png"
+            alt="Baby 31"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="31">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/79c41547-d0b7-4da0-92e8-7a64a2fed5f1.jpg"
+            alt="Baby 32"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="32">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/IMG_6955-rotated-1.jpeg"
+            alt="Baby 33"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+        <div class="gallery-item" data-index="33">
+          <img
+            src="https://doctorhanna.com/wp-content/uploads/2023/11/3f747c0b-5e4e-4182-bcea-2386bbe98f1d.jpg"
+            alt="Baby 34"
+            loading="lazy"
+          />
+          <div class="overlay"><span>Stories</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIGHTBOX ── -->
+    <div class="lightbox" id="lightbox">
+      <button class="close-btn" id="closeLightbox">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="prev-btn" id="prevImage">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="next-btn" id="nextImage">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <img id="lightboxImage" src="" alt="Gallery Image" />
+      <div class="counter" id="imageCounter">1 / 34</div>
+    </div>
+
+    <!-- ── STORIES / BLOG GRID ── -->
+    <section class="full-width">
+      <h2
+        style="
+          font-family: &quot;Playfair Display&quot;, serif;
+          font-size: 28px;
+          font-weight: 400;
+          color: #1b5c6b;
+          margin-bottom: 24px;
+        "
+      >
+        Success Stories
+      </h2>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-image">
+            <img
+              src="https://doctorhanna.com/wp-content/uploads/2023/11/59ada8a4-e328-4630-9799-ce7c866d58fe.jpg"
+              alt="Story 1"
+              loading="lazy"
+            />
+            <span class="date-badge">Dec 2024</span>
+          </div>
+          <div class="story-content">
+            <p class="category">Success Story</p>
+            <h3>After 7 Years, Our Miracle Finally Arrived</h3>
+            <p>
+              After years of trying and multiple failed treatments, Samantha and
+              her husband finally welcomed their baby girl. "Dr. Hanna never
+              gave up on us."
+            </p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-image">
+            <img
+              src="https://doctorhanna.com/wp-content/uploads/2023/11/double-blessing-300x300-1.jpg"
+              alt="Story 2"
+              loading="lazy"
+            />
+            <span class="date-badge">Nov 2024</span>
+          </div>
+          <div class="story-content">
+            <p class="category">IVF Success</p>
+            <h3>Twins After 12 Years of Waiting</h3>
+            <p>
+              Jessica and her husband had been trying for over a decade. Now
+              they are proud parents of beautiful twin girls, thanks to Dr.
+              Hanna's expertise.
+            </p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-image">
+            <img
+              src="https://doctorhanna.com/wp-content/uploads/2023/11/mommys-little-princess-300x300-1.jpg"
+              alt="Story 3"
+              loading="lazy"
+            />
+            <span class="date-badge">Oct 2024</span>
+          </div>
+          <div class="story-content">
+            <p class="category">Patient Story</p>
+            <h3>Single Mother's Dream Comes True</h3>
+            <p>
+              At 39, Aaliyah decided to pursue motherhood on her own. With Dr.
+              Hanna's guidance, she is now the proud mother of a healthy baby
+              boy.
+            </p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIAL CAROUSEL ── -->
+    <section class="full-width testimonials-section" id="testimonials">
+      <div class="section-header">
+        <h2>More Testimonials</h2>
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">Rated 5 out of 5</span>
+        </div>
+      </div>
+
+      <div class="carousel-wrapper" id="carouselWrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              We can't thank you enough for your care and guidance during this
+              incredible experience! We are beyond thrilled. We started our
+              journey in April and are so pleased to say that we are 3 weeks
+              pregnant as I write this. From the first time I met with Dr.
+              Hanna, I knew I was in good hands. Her team is top class and have
+              taken such good care of me – Belkis, Beatrice and Rosa, you are
+              amazing! Thank you for making our dream a reality.
+            </blockquote>
+            <p class="author">Paula</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              I had the pleasure of meeting with Dr. Hanna after being referred
+              by a friend. The staff is wonderful. After trying several times,
+              I'm now 3 months pregnant and I couldn't be any happier.
+            </blockquote>
+            <p class="author">Luna</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              My husband and I wanted to have a baby, but after many times of
+              trying to become pregnant nothing seemed to work. I was
+              recommended to Dr. Hanna and my experience in the clinic has been
+              successful – I'm now 7 weeks pregnant thanks to the great
+              attention of Dr. Hanna and her staff. My dream of becoming a
+              mother has been a blessing.
+            </blockquote>
+            <p class="author">Rosa</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              My name is Beata, and I am 36 years old. When I came to Doctor
+              Hanna's office, I had already undergone a couple of unsuccessful
+              treatments in different clinics. Doctor Hanna was very personable
+              and professional. I'm very grateful for Doctor Hanna and everyone
+              in the office: Belkis, Beatrice, Angie, Pani Ania, Gabriel; you
+              are like a family to me.
+            </blockquote>
+            <p class="author">Beata</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              I am 51 years old and have tried to get pregnant for years. I
+              decided to seek help from Dr. Hanna so I could try IVF for the
+              second time. She is a very experienced doctor and is incredible at
+              her job. I would recommend her to any woman who has struggled with
+              infertility and desires to have a baby.
+            </blockquote>
+            <p class="author">Lisa</p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="rating-label">Rated 5 out of 5</div>
+            <div class="quote-icon">"</div>
+            <blockquote>
+              My husband and I are grateful to have found Dr. Hanna. We now have
+              a 4 year-old daughter, and decided to go for a second time and I'm
+              now 12 weeks pregnant with twins – we are so blessed.
+            </blockquote>
+            <p class="author">Jessica</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn">‹</button>
+        <button class="carousel-btn" id="nextBtn">›</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- ── CTA SECTION ── -->
+    <section class="cta-section full-width" id="contact">
+      <div class="cta-wrapper">
+        <div class="cta-left">
+          <p class="cta-label">Take the first step</p>
+          <h2>Take the first step<br />toward your family.</h2>
+          <p>
+            The consultation is free and without obligation. Speak directly with
+            our team to ask questions, understand your options, and meet the
+            practice — before committing to anything.
+          </p>
+          <a href="tel:2127940080" class="btn-fill">Call us today</a>
+        </div>
+        <div class="cta-right">
+          <div>
+            <p class="label">Phone</p>
+            <a href="tel:2127940080" class="phone">212-794-0080</a>
+          </div>
+          <div class="address">
+            <p><strong>Manhattan Reproductive Medicine, P.C.</strong></p>
+            <p>Park Avenue, New York City, NY</p>
+            <p class="hours">
+              Monday–Friday · 7:00 am – 5:00 pm<br />Saturday · By appointment
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-mark">
+        MIRI · Manhattan Reproductive Medicine · Est. 2001
+      </div>
+      <div class="footer-right">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">HIPAA</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      // ── LIGHTBOX / GALLERY ──
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const closeLightbox = document.getElementById("closeLightbox");
+      const prevImage = document.getElementById("prevImage");
+      const nextImage = document.getElementById("nextImage");
+      const imageCounter = document.getElementById("imageCounter");
+
+      let currentIndex = 0;
+      const totalImages = galleryItems.length;
+
+      galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          currentIndex = index;
+          openLightbox();
+        });
+      });
+
+      function openLightbox() {
+        const imgSrc = galleryItems[currentIndex].querySelector("img").src;
+        lightboxImage.src = imgSrc;
+        imageCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightboxFn() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function showImage(index) {
+        if (index < 0) index = totalImages - 1;
+        if (index >= totalImages) index = 0;
+        currentIndex = index;
+        const imgSrc = galleryItems[currentIndex].querySelector("img").src;
+        lightboxImage.src = imgSrc;
+        imageCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+      }
+
+      closeLightbox.addEventListener("click", closeLightboxFn);
+      prevImage.addEventListener("click", () => showImage(currentIndex - 1));
+      nextImage.addEventListener("click", () => showImage(currentIndex + 1));
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightboxFn();
+        if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+        if (e.key === "ArrowRight") showImage(currentIndex + 1);
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightboxFn();
+      });
+
+      // ── TESTIMONIAL CAROUSEL ──
+      const track = document.getElementById("carouselTrack");
+      const wrapper = document.getElementById("carouselWrapper");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dotsContainer = document.getElementById("carouselDots");
+
+      let carouselIndex = 0;
+      let visibleCards = 3;
+      let totalCards = document.querySelectorAll(".testimonial-card").length;
+      let autoSlideInterval = null;
+      let isDragging = false;
+      let startX = 0;
+
+      function updateVisibleCards() {
+        if (window.innerWidth < 768) {
+          visibleCards = 1;
+        } else if (window.innerWidth < 1024) {
+          visibleCards = 2;
+        } else {
+          visibleCards = 3;
+        }
+        updateCarousel();
+      }
+
+      function getCardWidth() {
+        const cards = document.querySelectorAll(".testimonial-card");
+        if (cards.length === 0) return 0;
+        const wrapperWidth = wrapper.offsetWidth - 40;
+        const gap = 20;
+        const cardWidth =
+          (wrapperWidth - (visibleCards - 1) * gap) / visibleCards;
+        return cardWidth;
+      }
+
+      function updateCarousel() {
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+        if (carouselIndex > maxIndex) carouselIndex = maxIndex;
+
+        const cardWidth = getCardWidth();
+        const gap = 20;
+        const offset = carouselIndex * (cardWidth + gap);
+
+        track.style.transition =
+          "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+      }
+
+      function updateDots() {
+        const totalDots = Math.ceil(totalCards / visibleCards);
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement("button");
+          dot.className =
+            "carousel-dot" +
+            (i === Math.floor(carouselIndex / visibleCards) ? " active" : "");
+          dot.addEventListener("click", () => {
+            carouselIndex = i * visibleCards;
+            updateCarousel();
+            resetAutoSlide();
+          });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function nextSlide() {
+        const maxIndex = Math.max(0, totalCards - visibleCards);
+        if (carouselIndex < maxIndex) {
+          carouselIndex += visibleCards;
+          if (carouselIndex > maxIndex) carouselIndex = maxIndex;
+          updateCarousel();
+          resetAutoSlide();
+        }
+      }
+
+      function prevSlide() {
+        if (carouselIndex > 0) {
+          carouselIndex -= visibleCards;
+          if (carouselIndex < 0) carouselIndex = 0;
+          updateCarousel();
+          resetAutoSlide();
+        }
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+
+      wrapper.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        track.style.transition = "none";
+        clearInterval(autoSlideInterval);
+      });
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const diff = e.pageX - startX;
+        const cardWidth = getCardWidth();
+        const gap = 20;
+        const offset = carouselIndex * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset + diff * 0.5}px)`;
+      });
+      window.addEventListener("mouseup", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition =
+          "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        const diff = e.pageX - startX;
+        if (diff < -50) nextSlide();
+        else if (diff > 50) prevSlide();
+        else updateCarousel();
+        resetAutoSlide();
+      });
+
+      wrapper.addEventListener("touchstart", (e) => {
+        isDragging = true;
+        startX = e.touches[0].pageX;
+        track.style.transition = "none";
+        clearInterval(autoSlideInterval);
+      });
+      window.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        const diff = e.touches[0].pageX - startX;
+        const cardWidth = getCardWidth();
+        const gap = 20;
+        const offset = carouselIndex * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset + diff * 0.5}px)`;
+      });
+      window.addEventListener("touchend", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition =
+          "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+        const diff = e.changedTouches[0].pageX - startX;
+        if (diff < -50) nextSlide();
+        else if (diff > 50) prevSlide();
+        else updateCarousel();
+        resetAutoSlide();
+      });
+
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateVisibleCards, 200);
+      });
+
+      setTimeout(() => {
+        updateVisibleCards();
+        resetAutoSlide();
+      }, 100);
+
+      wrapper.addEventListener("mouseenter", () =>
+        clearInterval(autoSlideInterval),
+      );
+      wrapper.addEventListener("mouseleave", resetAutoSlide);
+    </script>
+  </body>
+</html>
