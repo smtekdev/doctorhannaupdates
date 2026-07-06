@@ -1,1239 +1,1433 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Dr. Hanna · MIRI</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@200;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <style>
-      /* ── reset & base ── */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "DM Sans", sans-serif;
-        background: #faf7f2;
-        color: #14120f;
-        line-height: 1.5;
-        overflow-x: hidden;
-      }
-      a {
-        text-decoration: none;
-      }
-      img {
-        max-width: 100%;
-        display: block;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Dr. Hanna · MIRI</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@200;300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── reset & base ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #faf7f2;
+      color: #14120f;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .full-width {
+      width: 100%;
+      padding: 0 60px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 60px;
+      background: #faf7f2;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    .nav-wordmark {
+      animation: float 3s ease-in-out infinite;
+      display: block;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
       }
 
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .nav-wordmark img {
+      height: 95px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      color: #7a7060;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #1b5c6b;
+    }
+
+    .nav-links a.active {
+      color: #1b5c6b;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      background: #1b5c6b !important;
+      color: #fff !important;
+      padding: 10px 22px !important;
+      border-radius: 2px;
+      font-weight: 500 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .nav-cta:hover {
+      background: #0d3540 !important;
+    }
+
+    /* ── hero – image left, text right ── */
+    .hero-section {
+      padding: 60px 60px 40px;
+      background: #faf7f2;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #0d3540;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(27, 92, 107, 0.15);
+      order: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .hero-text {
+      order: 2;
+    }
+
+    .hero-text .label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9a96e;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .hero-text h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 em {
+      font-style: italic;
+      color: #1b5c6b;
+    }
+
+    .hero-text .lead {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: #1b5c6b;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 15px;
+      color: #7a7060;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .hero-text p strong {
+      color: #14120f;
+      font-weight: 500;
+    }
+
+    /* ── stats ── */
+    .stats-section {
+      padding: 0 60px 60px;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #1b5c6b;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .stats-bar:hover {
+      box-shadow: 0 8px 32px rgba(35, 119, 138, 0.685);
+    }
+
+    .stats-bar-item {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .stats-bar-item:last-child {
+      border-right: none;
+    }
+
+    .stats-bar-item:hover {
+      background: rgba(201, 169, 110, 0.12);
+    }
+
+    .stats-bar-item .num {
+      font-family: "Playfair Display", serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: #c9a96e;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .stats-bar-item:hover .num {
+      transform: scale(1.05);
+    }
+
+    .stats-bar-item .label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── DOCTOR SPOTLIGHT ── */
+    .doctor-section {
+      padding: 0 60px 60px;
+    }
+
+    .doctor-spotlight {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 0;
+      background: #1b5c6b;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 1400px;
+      margin: 0 auto;
+      transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+      min-height: 380px;
+    }
+
+    .doctor-spotlight:hover {
+      box-shadow: 0 12px 40px rgba(27, 92, 107, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .doctor-spotlight-left {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .doctor-spotlight-left .label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #c9a96e;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .doctor-spotlight-left blockquote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 2.4vw, 30px);
+      color: #fff;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.4;
+      border-left: 3px solid #c9a96e;
+      padding-left: 24px;
+      margin-bottom: 24px;
+    }
+
+    .doctor-spotlight-left .bio {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    .doctor-spotlight-left .bio strong {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+    }
+
+    .doctor-spotlight-right {
+      background: #c9a96e;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .doctor-spotlight-right .text-symbol {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #000000;
+      letter-spacing: 2px;
+      line-height: 1.3;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 18px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 12px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .doctor-spotlight:hover .doctor-spotlight-right .text-symbol {
+      border-bottom-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .doctor-spotlight-right .mini-quote {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .cred-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cred-list li {
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 300;
+      line-height: 1.5;
+      padding: 8px 0;
+      padding-left: 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .cred-list li:last-child {
+      border-bottom: none;
+    }
+
+    .cred-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .cred-list li:hover {
+      padding-left: 26px;
+      color: #fff;
+    }
+
+    .cred-list li:hover::before {
+      color: #fff;
+      transform: translateX(2px);
+    }
+
+    .cred-list li strong {
+      font-weight: 600;
+      color: #000000;
+      display: block;
+      font-size: 14px;
+      margin-bottom: 1px;
+    }
+
+    /* ── credentials section ── */
+    .credentials-section {
+      padding: 0 60px 60px;
+    }
+
+    .credentials-wrapper {
+      background: #fff;
+      border-radius: 8px;
+      padding: 48px 48px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+
+    .credentials-wrapper:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-color: #c9a96e;
+    }
+
+    .credentials-wrapper h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: #1b5c6b;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .cred-item:hover {
+      background: #288da3c9;
+    }
+
+    .cred-dot {
+      width: 6px;
+      height: 6px;
+      background: #c9a96e;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .cred-item:hover .cred-dot {
+      transform: scale(1.4);
+    }
+
+    .cred-text {
+      font-size: 14px;
+      color: #14120f;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .cred-sub {
+      font-size: 12px;
+      color: #7a7060;
+      font-weight: 300;
+    }
+
+    /* ── team ── */
+    .team-section {
+      padding: 0 60px 60px;
+    }
+
+    .team-wrapper {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 48px 48px 56px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: all 0.4s ease;
+    }
+
+    .team-wrapper:hover {
+      border-color: #c9a96e;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .team-wrapper .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #1b5c6b;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .team-wrapper .section-title .gold {
+      color: #c9a96e;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+
+    .team-member {
+      background: #faf7f2;
+      border-radius: 12px;
+      padding: 0 0 20px 0;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+      border-color: #c9a96e;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      background: #fff;
+    }
+
+    .team-member .avatar {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: #d6edf2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px 12px 0 0;
+      transition: all 0.4s ease;
+    }
+
+    .team-member:hover .avatar {
+      transform: scale(1.02);
+    }
+
+    .team-member .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .team-member:hover .avatar img {
+      transform: scale(1.05);
+    }
+
+    .team-member .avatar .placeholder-icon {
+      font-size: 60px;
+      color: #1b5c6b;
+      opacity: 0.4;
+    }
+
+    .team-member .name {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #1b5c6b;
+      margin-bottom: 2px;
+      padding: 0 12px;
+      transition: color 0.3s ease;
+    }
+
+    .team-member:hover .name {
+      color: #c9a96e;
+    }
+
+    .team-member .role {
+      font-size: 13px;
+      color: #7a7060;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      padding: 0 12px;
+    }
+
+    /* ── mission ── */
+    .mission-section {
+      padding: 0 60px 60px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .mission-card {
+      background: #d6edf2;
+      padding: 40px 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .mission-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #c9a96e;
+      transform: translateY(-4px);
+    }
+
+    .mission-card .icon {
+      font-size: 28px;
+      color: #c9a96e;
+      margin-bottom: 16px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover .icon {
+      transform: scale(1.15) rotate(-5deg);
+    }
+
+    .mission-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #1b5c6b;
+    }
+
+    .mission-card p {
+      font-size: 14px;
+      color: #7a7060;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── timeline ── */
+    .timeline-section {
+      padding: 0 60px 60px;
+    }
+
+    .timeline-wrapper {
+      background: #1b5c6b;
+      border-radius: 8px;
+      padding: 48px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .timeline-wrapper:hover {
+      box-shadow: 0 8px 32px rgba(27, 92, 107, 0.3);
+    }
+
+    .timeline-wrapper h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 32px;
+      color: #c9a96e;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .timeline-item {
+      border-left: 2px solid #c9a96e;
+      padding-left: 16px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .timeline-item:hover {
+      padding-left: 24px;
+      border-left-color: #fff;
+    }
+
+    .timeline-item .year {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #c9a96e;
+      line-height: 1;
+      margin-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .timeline-item:hover .year {
+      color: #fff;
+    }
+
+    .timeline-item .desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .timeline-item:hover .desc {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 0 60px 60px;
+    }
+
+    .cta-wrapper {
+      background: #f0e4cc;
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      max-width: 1400px;
+      margin: 0 auto;
+      transition: all 0.4s ease;
+    }
+
+    .cta-wrapper:hover {
+      box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .cta-left {
+      padding: 56px 48px;
+      border-right: 1px solid rgba(201, 169, 110, 0.3);
+      transition: background 0.3s ease;
+    }
+
+    .cta-left:hover {
+      background: rgba(201, 169, 110, 0.08);
+    }
+
+    .cta-left .cta-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #1b5c6b;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .cta-left h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #1b5c6b;
+      margin-bottom: 16px;
+    }
+
+    .cta-left p {
+      font-size: 15px;
+      color: #7a7060;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 500px;
+    }
+
+    .btn-fill {
+      background: #1b5c6b;
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-fill:hover {
+      background: #0d3540;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(27, 92, 107, 0.3);
+    }
+
+    .cta-right {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-right:hover {
+      background: rgba(201, 169, 110, 0.08);
+    }
+
+    .cta-right .label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #7a7060;
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    .cta-right .phone {
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+      color: #1b5c6b;
+      font-weight: 700;
+      letter-spacing: -1px;
+      transition: color 0.3s ease;
+    }
+
+    .cta-right .phone:hover {
+      color: #0d3540;
+    }
+
+    .cta-right .address {
+      padding-top: 16px;
+      border-top: 1px solid rgba(201, 169, 110, 0.4);
+    }
+
+    .cta-right .address p {
+      font-size: 14px;
+      color: #7a7060;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .cta-right .address strong {
+      color: #14120f;
+      font-weight: 500;
+    }
+
+    .cta-right .address .hours {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #7a7060;
+      opacity: 0.7;
+    }
+
+    /* ── footer ── */
+    footer {
+      background: #14120f;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .footer-mark {
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-right a {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-right a:hover {
+      color: #c9a96e;
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 1024px) {
       .full-width {
-        width: 100%;
-        padding: 0 60px;
-      }
-      .container {
-        max-width: 1280px;
-        margin: 0 auto;
+        padding: 0 30px;
       }
 
-      /* ── nav ── */
       nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 4px 60px;
-        background: #faf7f2;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        width: 100%;
-      }
-      .nav-wordmark {
-        animation: float 3s ease-in-out infinite;
-        display: block;
-        text-decoration: none;
-        flex-shrink: 0;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-6px);
-        }
-      }
-      .nav-wordmark img {
-        height: 95px;
-        width: auto;
-        display: block;
-      }
-      .nav-links {
-        display: flex;
-        gap: 32px;
-        align-items: center;
-      }
-      .nav-links a {
-        font-size: 12px;
-        font-weight: 400;
-        color: #7a7060;
-        letter-spacing: 0.5px;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover {
-        color: #1b5c6b;
-      }
-      .nav-links a.active {
-        color: #1b5c6b;
-        font-weight: 500;
-      }
-      .nav-cta {
-        background: #1b5c6b !important;
-        color: #fff !important;
-        padding: 10px 22px !important;
-        border-radius: 2px;
-        font-weight: 500 !important;
-        font-size: 12px !important;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-      }
-      .nav-cta:hover {
-        background: #0d3540 !important;
+        padding: 4px 30px;
       }
 
-      /* ── hero – image left, text right ── */
       .hero-section {
-        padding: 60px 60px 40px;
-        background: #faf7f2;
+        padding: 40px 30px 30px;
       }
+
+      .stats-section {
+        padding: 0 30px 40px;
+      }
+
+      .doctor-section {
+        padding: 0 30px 40px;
+      }
+
+      .credentials-section {
+        padding: 0 30px 40px;
+      }
+
+      .team-section {
+        padding: 0 30px 40px;
+      }
+
+      .mission-section {
+        padding: 0 30px 40px;
+      }
+
+      .timeline-section {
+        padding: 0 30px 40px;
+      }
+
+      .cta-section {
+        padding: 0 30px 40px;
+      }
+
+      footer {
+        padding: 30px;
+      }
+
       .hero-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
+        gap: 30px;
       }
+
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .team-wrapper {
+        padding: 32px 24px 40px;
+      }
+
+      .team-member .avatar {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .full-width {
+        padding: 0 20px;
+      }
+
+      nav {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
       .hero-image {
-        border-radius: 20px;
-        overflow: hidden;
-        background: #0d3540;
-        min-height: 450px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 12px 40px rgba(27, 92, 107, 0.15);
         order: 1;
+        min-height: 300px;
       }
+
       .hero-image img {
-        width: 100%;
-        height: 100%;
-        min-height: 450px;
-        object-fit: cover;
-        border-radius: 20px;
+        min-height: 300px;
       }
+
       .hero-text {
         order: 2;
       }
-      .hero-text .label {
-        font-size: 10px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #c9a96e;
-        font-weight: 500;
-        margin-bottom: 12px;
-      }
-      .hero-text h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(36px, 4.5vw, 56px);
-        font-weight: 400;
-        line-height: 1.05;
-        letter-spacing: -1.5px;
-        margin-bottom: 20px;
-      }
-      .hero-text h1 em {
-        font-style: italic;
-        color: #1b5c6b;
-      }
-      .hero-text .lead {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(18px, 2vw, 24px);
-        font-weight: 400;
-        line-height: 1.4;
-        color: #1b5c6b;
-        margin-bottom: 20px;
-      }
-      .hero-text p {
-        font-size: 15px;
-        color: #7a7060;
-        font-weight: 300;
-        line-height: 1.8;
-        margin-bottom: 14px;
-      }
-      .hero-text p strong {
-        color: #14120f;
-        font-weight: 500;
-      }
 
-      /* ── stats ── */
-      .stats-section {
-        padding: 0 60px 60px;
-      }
       .stats-bar {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-        background: #1b5c6b;
-        border-radius: 8px;
-        overflow: hidden;
-        max-width: 1400px;
-        margin: 0 auto;
-        transition: box-shadow 0.3s ease;
-      }
-      .stats-bar:hover {
-        box-shadow: 0 8px 32px rgba(35, 119, 138, 0.685);
-      }
-      .stats-bar-item {
-        padding: 36px 24px;
-        text-align: center;
-        border-right: 1px solid rgba(255, 255, 255, 0.08);
-        transition: background 0.3s ease;
-        cursor: default;
-      }
-      .stats-bar-item:last-child {
-        border-right: none;
-      }
-      .stats-bar-item:hover {
-        background: rgba(201, 169, 110, 0.12);
-      }
-      .stats-bar-item .num {
-        font-family: "Playfair Display", serif;
-        font-size: 44px;
-        font-weight: 700;
-        color: #c9a96e;
-        line-height: 1;
-        transition: transform 0.3s ease;
-      }
-      .stats-bar-item:hover .num {
-        transform: scale(1.05);
-      }
-      .stats-bar-item .label {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
-        font-weight: 300;
-        margin-top: 6px;
-        line-height: 1.4;
+        grid-template-columns: 1fr 1fr;
       }
 
-      /* ── DOCTOR SPOTLIGHT ── */
-      .doctor-section {
-        padding: 0 60px 60px;
+      .stats-bar-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stats-bar-item:last-child {
+        border-bottom: none;
       }
 
       .doctor-spotlight {
-        display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 0;
-        background: #1b5c6b;
-        border-radius: 8px;
-        overflow: hidden;
-        max-width: 1400px;
-        margin: 0 auto;
-        transition:
-          box-shadow 0.3s ease,
-          transform 0.3s ease;
-        min-height: 380px;
-      }
-      .doctor-spotlight:hover {
-        box-shadow: 0 12px 40px rgba(27, 92, 107, 0.3);
-        transform: translateY(-4px);
-      }
-
-      .doctor-spotlight-left {
-        padding: 56px 48px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .doctor-spotlight-left .label {
-        font-size: 10px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #c9a96e;
-        font-weight: 500;
-        margin-bottom: 16px;
-      }
-      .doctor-spotlight-left blockquote {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(20px, 2.4vw, 30px);
-        color: #fff;
-        font-style: italic;
-        font-weight: 400;
-        line-height: 1.4;
-        border-left: 3px solid #c9a96e;
-        padding-left: 24px;
-        margin-bottom: 24px;
-      }
-      .doctor-spotlight-left .bio {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.65);
-        font-weight: 300;
-        line-height: 1.8;
-        max-width: 520px;
-      }
-      .doctor-spotlight-left .bio strong {
-        color: rgba(255, 255, 255, 0.9);
-        font-weight: 400;
+        grid-template-columns: 1fr;
       }
 
       .doctor-spotlight-right {
-        background: #c9a96e;
-        display: flex;
+        padding: 32px 28px;
+      }
+
+      .cred-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+      }
+
+      footer {
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 40px 36px;
-        position: relative;
-        overflow: hidden;
-        transition: background 0.3s ease;
+        gap: 20px;
+        text-align: center;
+        padding: 32px 24px;
+      }
+
+      .credentials-wrapper {
+        padding: 32px 24px;
+      }
+
+      .timeline-wrapper {
+        padding: 32px 24px;
+      }
+
+      .hero-section {
+        padding: 30px 20px 20px;
+      }
+
+      .stats-section {
+        padding: 0 20px 30px;
+      }
+
+      .doctor-section {
+        padding: 0 20px 30px;
+      }
+
+      .credentials-section {
+        padding: 0 20px 30px;
+      }
+
+      .team-section {
+        padding: 0 20px 30px;
+      }
+
+      .mission-section {
+        padding: 0 20px 30px;
+      }
+
+      .timeline-section {
+        padding: 0 20px 30px;
+      }
+
+      .cta-section {
+        padding: 0 20px 30px;
+      }
+
+      .team-wrapper .section-title {
+        font-size: 24px;
+      }
+
+      .team-member .avatar {
+        height: 180px;
+      }
+
+      .team-member .name {
+        font-size: 16px;
+      }
+
+      .cta-left {
+        padding: 40px 32px;
+      }
+
+      .cta-right {
+        padding: 32px;
+      }
+
+      .cta-right .phone {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .full-width {
+        padding: 0 16px;
+      }
+
+      nav {
+        padding: 10px 16px;
+      }
+
+      .nav-wordmark img {
+        height: 70px;
+      }
+
+      .stats-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doctor-spotlight-left {
+        padding: 32px 24px;
+      }
+
+      .doctor-spotlight-right {
+        padding: 24px 20px;
+      }
+
+      .cta-left {
+        padding: 32px 24px;
+      }
+
+      .cta-right {
+        padding: 32px 24px;
+      }
+
+      .hero-image {
+        min-height: 220px;
+      }
+
+      .hero-image img {
+        min-height: 220px;
+      }
+
+      .mission-card {
+        padding: 28px 20px;
+      }
+
+      .credentials-wrapper {
+        padding: 24px 16px;
+      }
+
+      .timeline-wrapper {
+        padding: 24px 16px;
+      }
+
+      .hero-section {
+        padding: 20px 16px 16px;
+      }
+
+      .stats-section {
+        padding: 0 16px 24px;
+      }
+
+      .doctor-section {
+        padding: 0 16px 24px;
+      }
+
+      .credentials-section {
+        padding: 0 16px 24px;
+      }
+
+      .team-section {
+        padding: 0 16px 24px;
+      }
+
+      .mission-section {
+        padding: 0 16px 24px;
+      }
+
+      .timeline-section {
+        padding: 0 16px 24px;
+      }
+
+      .cta-section {
+        padding: 0 16px 24px;
+      }
+
+      footer {
+        padding: 24px 16px;
+      }
+
+      .stats-bar-item .num {
+        font-size: 34px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .team-member {
+        border-radius: 8px;
+      }
+
+      .team-member .avatar {
+        height: 140px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      .team-member .name {
+        font-size: 14px;
+      }
+
+      .team-member .role {
+        font-size: 11px;
+      }
+
+      .team-wrapper {
+        padding: 20px 12px 28px;
+      }
+
+      .team-wrapper .section-title {
+        font-size: 20px;
+      }
+
+      .team-member .avatar .placeholder-icon {
+        font-size: 40px;
+      }
+
+      .cta-left h2 {
+        font-size: 28px;
+      }
+
+      .cta-left p {
+        font-size: 14px;
+      }
+
+      .cta-right .phone {
+        font-size: 26px;
+      }
+
+      .btn-fill {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cred-list li {
+        font-size: 12px;
+        padding: 6px 0;
+        padding-left: 18px;
+      }
+
+      .cred-list li strong {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .team-member .avatar {
+        height: 120px;
+      }
+
+      .team-member .name {
+        font-size: 13px;
+      }
+
+      .team-member .role {
+        font-size: 10px;
+      }
+
+      .cta-left h2 {
+        font-size: 24px;
+      }
+
+      .cta-right .phone {
+        font-size: 22px;
       }
 
       .doctor-spotlight-right .text-symbol {
-        font-family: "Playfair Display", serif;
-        font-size: 18px;
-        font-weight: 400;
-        color: #000000;
-        letter-spacing: 2px;
-        line-height: 1.3;
-        position: relative;
-        z-index: 2;
-        margin-bottom: 18px;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-        padding-bottom: 12px;
-        width: 100%;
-        transition: all 0.3s ease;
-      }
-      .doctor-spotlight:hover .doctor-spotlight-right .text-symbol {
-        border-bottom-color: rgba(255, 255, 255, 0.4);
-      }
-
-      .doctor-spotlight-right .mini-quote {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-      }
-
-      .cred-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .cred-list li {
-        font-size: 13px;
-        color: rgba(0, 0, 0, 0.85);
-        font-weight: 300;
-        line-height: 1.5;
-        padding: 8px 0;
-        padding-left: 20px;
-        position: relative;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        transition: all 0.3s ease;
-      }
-      .cred-list li:last-child {
-        border-bottom: none;
-      }
-      .cred-list li::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        top: 8px;
-        color: rgba(0, 0, 0, 0.4);
-        font-size: 12px;
-        transition: all 0.3s ease;
-      }
-      .cred-list li:hover {
-        padding-left: 26px;
-        color: #fff;
-      }
-      .cred-list li:hover::before {
-        color: #fff;
-        transform: translateX(2px);
-      }
-      .cred-list li strong {
-        font-weight: 600;
-        color: #000000;
-        display: block;
-        font-size: 14px;
-        margin-bottom: 1px;
-      }
-
-      /* ── credentials section ── */
-      .credentials-section {
-        padding: 0 60px 60px;
-      }
-      .credentials-wrapper {
-        background: #fff;
-        border-radius: 8px;
-        padding: 48px 48px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        max-width: 1400px;
-        margin: 0 auto;
-        transition: all 0.3s ease;
-      }
-      .credentials-wrapper:hover {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        border-color: #c9a96e;
-      }
-      .credentials-wrapper h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 24px;
-        color: #1b5c6b;
-      }
-      .cred-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px 40px;
-      }
-      .cred-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 10px 12px;
-        border-radius: 4px;
-        transition: background 0.3s ease;
-        cursor: default;
-      }
-      .cred-item:hover {
-        background: #288da3c9;
-      }
-      .cred-dot {
-        width: 6px;
-        height: 6px;
-        background: #c9a96e;
-        border-radius: 50%;
-        margin-top: 6px;
-        flex-shrink: 0;
-        transition: transform 0.3s ease;
-      }
-      .cred-item:hover .cred-dot {
-        transform: scale(1.4);
-      }
-      .cred-text {
-        font-size: 14px;
-        color: #14120f;
-        font-weight: 400;
-        line-height: 1.5;
-      }
-      .cred-sub {
-        font-size: 12px;
-        color: #7a7060;
-        font-weight: 300;
-      }
-
-      /* ── team ── */
-      .team-section {
-        padding: 0 60px 60px;
-      }
-      .team-wrapper {
-        background: #ffffff;
-        border-radius: 8px;
-        padding: 48px 48px 56px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        max-width: 1400px;
-        margin: 0 auto;
-        transition: all 0.4s ease;
-      }
-      .team-wrapper:hover {
-        border-color: #c9a96e;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      }
-      .team-wrapper .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: 28px;
-        font-weight: 400;
-        color: #1b5c6b;
-        text-align: center;
-        margin-bottom: 32px;
-      }
-      .team-wrapper .section-title .gold {
-        color: #c9a96e;
-      }
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 24px;
-      }
-      .team-member {
-        background: #faf7f2;
-        border-radius: 12px;
-        padding: 0 0 20px 0;
-        text-align: center;
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        transition: all 0.4s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-      }
-      .team-member:hover {
-        transform: translateY(-8px);
-        border-color: #c9a96e;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-        background: #fff;
-      }
-      .team-member .avatar {
-        width: 100%;
-        height: 250px;
-        overflow: hidden;
-        margin-bottom: 16px;
-        background: #d6edf2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px 12px 0 0;
-        transition: all 0.4s ease;
-      }
-      .team-member:hover .avatar {
-        transform: scale(1.02);
-      }
-      .team-member .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-      .team-member:hover .avatar img {
-        transform: scale(1.05);
-      }
-      .team-member .avatar .placeholder-icon {
-        font-size: 60px;
-        color: #1b5c6b;
-        opacity: 0.4;
-      }
-      .team-member .name {
-        font-family: "Playfair Display", serif;
-        font-size: 18px;
-        font-weight: 400;
-        color: #1b5c6b;
-        margin-bottom: 2px;
-        padding: 0 12px;
-        transition: color 0.3s ease;
-      }
-      .team-member:hover .name {
-        color: #c9a96e;
-      }
-      .team-member .role {
-        font-size: 13px;
-        color: #7a7060;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        padding: 0 12px;
-      }
-
-      /* ── mission ── */
-      .mission-section {
-        padding: 0 60px 60px;
-      }
-      .mission-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-      .mission-card {
-        background: #d6edf2;
-        padding: 40px 36px;
-        border-radius: 8px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-        cursor: default;
-      }
-      .mission-card:hover {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        border-color: #c9a96e;
-        transform: translateY(-4px);
-      }
-      .mission-card .icon {
-        font-size: 28px;
-        color: #c9a96e;
-        margin-bottom: 16px;
-        display: inline-block;
-        transition: transform 0.3s ease;
-      }
-      .mission-card:hover .icon {
-        transform: scale(1.15) rotate(-5deg);
-      }
-      .mission-card h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 20px;
-        font-weight: 400;
-        margin-bottom: 10px;
-        color: #1b5c6b;
-      }
-      .mission-card p {
-        font-size: 14px;
-        color: #7a7060;
-        font-weight: 300;
-        line-height: 1.7;
-      }
-
-      /* ── timeline ── */
-      .timeline-section {
-        padding: 0 60px 60px;
-      }
-      .timeline-wrapper {
-        background: #1b5c6b;
-        border-radius: 8px;
-        padding: 48px 48px;
-        max-width: 1400px;
-        margin: 0 auto;
-        transition: box-shadow 0.3s ease;
-      }
-      .timeline-wrapper:hover {
-        box-shadow: 0 8px 32px rgba(27, 92, 107, 0.3);
-      }
-      .timeline-wrapper h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 28px;
-        font-weight: 400;
-        margin-bottom: 32px;
-        color: #c9a96e;
-      }
-      .timeline-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-      }
-      .timeline-item {
-        border-left: 2px solid #c9a96e;
-        padding-left: 16px;
-        transition: all 0.3s ease;
-        cursor: default;
-      }
-      .timeline-item:hover {
-        padding-left: 24px;
-        border-left-color: #fff;
-      }
-      .timeline-item .year {
-        font-family: "Playfair Display", serif;
-        font-size: 24px;
-        font-weight: 700;
-        color: #c9a96e;
-        line-height: 1;
-        margin-bottom: 6px;
-        transition: color 0.3s ease;
-      }
-      .timeline-item:hover .year {
-        color: #fff;
-      }
-      .timeline-item .desc {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
-        font-weight: 300;
-        line-height: 1.6;
-      }
-      .timeline-item:hover .desc {
-        color: rgba(255, 255, 255, 0.85);
-      }
-
-      /* ── CTA ── */
-      .cta-section {
-        padding: 0 60px 60px;
-      }
-      .cta-wrapper {
-        background: #f0e4cc;
-        border-radius: 8px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        overflow: hidden;
-        max-width: 1400px;
-        margin: 0 auto;
-        transition: all 0.4s ease;
-      }
-      .cta-wrapper:hover {
-        box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
-        transform: translateY(-4px);
-      }
-      .cta-left {
-        padding: 56px 48px;
-        border-right: 1px solid rgba(201, 169, 110, 0.3);
-        transition: background 0.3s ease;
-      }
-      .cta-left:hover {
-        background: rgba(201, 169, 110, 0.08);
-      }
-      .cta-left .cta-label {
-        font-size: 10px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #1b5c6b;
-        font-weight: 500;
-        margin-bottom: 8px;
-      }
-      .cta-left h2 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(28px, 3.5vw, 42px);
-        font-weight: 400;
-        line-height: 1.1;
-        letter-spacing: -1px;
-        color: #1b5c6b;
-        margin-bottom: 16px;
-      }
-      .cta-left p {
         font-size: 15px;
-        color: #7a7060;
-        font-weight: 300;
-        line-height: 1.8;
-        margin-bottom: 28px;
-        max-width: 500px;
       }
-      .btn-fill {
-        background: #1b5c6b;
-        color: #fff;
-        border: none;
-        padding: 14px 32px;
-        font-family: "DM Sans", sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: inline-block;
-      }
-      .btn-fill:hover {
-        background: #0d3540;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 16px rgba(27, 92, 107, 0.3);
-      }
-      .cta-right {
-        padding: 56px 48px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-        transition: background 0.3s ease;
-      }
-      .cta-right:hover {
-        background: rgba(201, 169, 110, 0.08);
-      }
-      .cta-right .label {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: #7a7060;
-        font-weight: 400;
-        margin-bottom: 2px;
-      }
-      .cta-right .phone {
-        font-family: "Playfair Display", serif;
-        font-size: 34px;
-        color: #1b5c6b;
-        font-weight: 700;
-        letter-spacing: -1px;
-        transition: color 0.3s ease;
-      }
-      .cta-right .phone:hover {
-        color: #0d3540;
-      }
-      .cta-right .address {
-        padding-top: 16px;
-        border-top: 1px solid rgba(201, 169, 110, 0.4);
-      }
-      .cta-right .address p {
-        font-size: 14px;
-        color: #7a7060;
-        font-weight: 300;
-        line-height: 1.7;
-      }
-      .cta-right .address strong {
-        color: #14120f;
-        font-weight: 500;
-      }
-      .cta-right .address .hours {
-        margin-top: 8px;
-        font-size: 13px;
-        color: #7a7060;
-        opacity: 0.7;
-      }
+    }
+  </style>
+</head>
 
-      /* ── footer ── */
-      footer {
-        background: #14120f;
-        padding: 40px 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-      }
-      .footer-mark {
-        font-family: "Playfair Display", serif;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-      .footer-right {
-        display: flex;
-        gap: 24px;
-      }
-      .footer-right a {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.3);
-        letter-spacing: 0.5px;
-        transition: color 0.3s ease;
-      }
-      .footer-right a:hover {
-        color: #c9a96e;
-      }
+<body>
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark">
+      <img src="hanna.png" alt="Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD" />
+    </a>
+    <div class="nav-links">
+      <a href="Services.html">Services</a>
+      <a href="About-Us.html" class="active">About Dr. Hanna</a>
+      <a href="Stories.html">Stories</a>
+      <a href="Contact-Us.html">Contact</a>
+      <a href="tel:2127940080" class="nav-cta">Free Consultation</a>
+    </div>
+  </nav>
 
-      /* ── responsive ── */
-      @media (max-width: 1024px) {
-        .full-width {
-          padding: 0 30px;
-        }
-        nav {
-          padding: 4px 30px;
-        }
-        .hero-section {
-          padding: 40px 30px 30px;
-        }
-        .stats-section {
-          padding: 0 30px 40px;
-        }
-        .doctor-section {
-          padding: 0 30px 40px;
-        }
-        .credentials-section {
-          padding: 0 30px 40px;
-        }
-        .team-section {
-          padding: 0 30px 40px;
-        }
-        .mission-section {
-          padding: 0 30px 40px;
-        }
-        .timeline-section {
-          padding: 0 30px 40px;
-        }
-        .cta-section {
-          padding: 0 30px 40px;
-        }
-        footer {
-          padding: 30px;
-        }
-        .hero-content {
-          gap: 30px;
-        }
-        .team-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
-        }
-        .team-wrapper {
-          padding: 32px 24px 40px;
-        }
-        .team-member .avatar {
-          height: 200px;
-        }
-      }
-      @media (max-width: 900px) {
-        .full-width {
-          padding: 0 20px;
-        }
-        nav {
-          padding: 12px 20px;
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-        .nav-links a:not(.nav-cta) {
-          display: none;
-        }
-        .hero-content {
-          grid-template-columns: 1fr;
-          gap: 30px;
-        }
-        .hero-image {
-          order: 1;
-          min-height: 300px;
-        }
-        .hero-image img {
-          min-height: 300px;
-        }
-        .hero-text {
-          order: 2;
-        }
-        .stats-bar {
-          grid-template-columns: 1fr 1fr;
-        }
-        .stats-bar-item {
-          border-right: none;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .stats-bar-item:last-child {
-          border-bottom: none;
-        }
-        .doctor-spotlight {
-          grid-template-columns: 1fr;
-        }
-        .doctor-spotlight-right {
-          padding: 32px 28px;
-        }
-        .cred-grid {
-          grid-template-columns: 1fr;
-        }
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-        .mission-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-        .timeline-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .cta-wrapper {
-          grid-template-columns: 1fr;
-        }
-        .cta-left {
-          border-right: none;
-          border-bottom: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        footer {
-          flex-direction: column;
-          gap: 20px;
-          text-align: center;
-          padding: 32px 24px;
-        }
-        .credentials-wrapper {
-          padding: 32px 24px;
-        }
-        .timeline-wrapper {
-          padding: 32px 24px;
-        }
-        .hero-section {
-          padding: 30px 20px 20px;
-        }
-        .stats-section {
-          padding: 0 20px 30px;
-        }
-        .doctor-section {
-          padding: 0 20px 30px;
-        }
-        .credentials-section {
-          padding: 0 20px 30px;
-        }
-        .team-section {
-          padding: 0 20px 30px;
-        }
-        .mission-section {
-          padding: 0 20px 30px;
-        }
-        .timeline-section {
-          padding: 0 20px 30px;
-        }
-        .cta-section {
-          padding: 0 20px 30px;
-        }
-        .team-wrapper .section-title {
-          font-size: 24px;
-        }
-        .team-member .avatar {
-          height: 180px;
-        }
-        .team-member .name {
-          font-size: 16px;
-        }
-        .cta-left {
-          padding: 40px 32px;
-        }
-        .cta-right {
-          padding: 32px;
-        }
-        .cta-right .phone {
-          font-size: 28px;
-        }
-      }
-      @media (max-width: 600px) {
-        .full-width {
-          padding: 0 16px;
-        }
-        nav {
-          padding: 10px 16px;
-        }
-        .nav-wordmark img {
-          height: 70px;
-        }
-        .stats-bar {
-          grid-template-columns: 1fr;
-        }
-        .timeline-grid {
-          grid-template-columns: 1fr;
-        }
-        .doctor-spotlight-left {
-          padding: 32px 24px;
-        }
-        .doctor-spotlight-right {
-          padding: 24px 20px;
-        }
-        .cta-left {
-          padding: 32px 24px;
-        }
-        .cta-right {
-          padding: 32px 24px;
-        }
-        .hero-image {
-          min-height: 220px;
-        }
-        .hero-image img {
-          min-height: 220px;
-        }
-        .mission-card {
-          padding: 28px 20px;
-        }
-        .credentials-wrapper {
-          padding: 24px 16px;
-        }
-        .timeline-wrapper {
-          padding: 24px 16px;
-        }
-        .hero-section {
-          padding: 20px 16px 16px;
-        }
-        .stats-section {
-          padding: 0 16px 24px;
-        }
-        .doctor-section {
-          padding: 0 16px 24px;
-        }
-        .credentials-section {
-          padding: 0 16px 24px;
-        }
-        .team-section {
-          padding: 0 16px 24px;
-        }
-        .mission-section {
-          padding: 0 16px 24px;
-        }
-        .timeline-section {
-          padding: 0 16px 24px;
-        }
-        .cta-section {
-          padding: 0 16px 24px;
-        }
-        footer {
-          padding: 24px 16px;
-        }
-        .stats-bar-item .num {
-          font-size: 34px;
-        }
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
-        }
-        .team-member {
-          border-radius: 8px;
-        }
-        .team-member .avatar {
-          height: 140px;
-          border-radius: 8px 8px 0 0;
-        }
-        .team-member .name {
-          font-size: 14px;
-        }
-        .team-member .role {
-          font-size: 11px;
-        }
-        .team-wrapper {
-          padding: 20px 12px 28px;
-        }
-        .team-wrapper .section-title {
-          font-size: 20px;
-        }
-        .team-member .avatar .placeholder-icon {
-          font-size: 40px;
-        }
-        .cta-left h2 {
-          font-size: 28px;
-        }
-        .cta-left p {
-          font-size: 14px;
-        }
-        .cta-right .phone {
-          font-size: 26px;
-        }
-        .btn-fill {
-          width: 100%;
-          text-align: center;
-        }
-        .cred-list li {
-          font-size: 12px;
-          padding: 6px 0;
-          padding-left: 18px;
-        }
-        .cred-list li strong {
-          font-size: 13px;
-        }
-      }
-      @media (max-width: 400px) {
-        .team-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-        }
-        .team-member .avatar {
-          height: 120px;
-        }
-        .team-member .name {
-          font-size: 13px;
-        }
-        .team-member .role {
-          font-size: 10px;
-        }
-        .cta-left h2 {
-          font-size: 24px;
-        }
-        .cta-right .phone {
-          font-size: 22px;
-        }
-        .doctor-spotlight-right .text-symbol {
-          font-size: 15px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- ── NAV ── -->
-    <nav>
-      <a href="index.html" class="nav-wordmark">
-        <img
-          src="hanna.png"
-          alt="Manhattan Reproductive Medicine — Dr. Hanna Jesionowska, MD"
-        />
-      </a>
-      <div class="nav-links">
-        <a href="Services.html">Services</a>
-        <a href="About-Us.html" class="active">About Dr. Hanna</a>
-        <a href="Stories.html">Stories</a>
-        <a href="Contact-Us.html">Contact</a>
-        <a href="tel:2127940080" class="nav-cta">Book an Appointment</a>
-      </div>
-    </nav>
-
-    <!-- ── HERO ── -->
-    <section class="hero-section full-width">
-      <div class="hero-content">
-        <div class="hero-image">
-          <img
-            src="Dr-Hanna.png"
-            alt="Dr. Hanna Jesionowska, MD"
-            onerror="
+  <!-- ── HERO ── -->
+  <section class="hero-section full-width">
+    <div class="hero-content">
+      <div class="hero-image">
+        <img src="image001.png" alt="Dr. Hanna Jesionowska, MD" onerror="
               this.onerror = null;
               this.parentElement.innerHTML =
                 '<div style=\'padding:40px;text-align:center;color:rgba(255,255,255,0.5);\'><span style=\'color:#C9A96E;font-size:20px;display:block;margin-bottom:8px;\'>Dr. Hanna</span>Photo here</div>';
-            "
-          />
+            " />
+      </div>
+      <div class="hero-text">
+        <p class="label">About MIRI</p>
+        <h1>
+          Meet <em>Dr. Hanna</em> &amp; the<br />practice behind the promise
+        </h1>
+        <div class="lead">
+          "I am an MRM Medical Director and a mother of two boys — and I
+          believe in the dream too."
         </div>
-        <div class="hero-text">
-          <p class="label">About MIRI</p>
-          <h1>
-            Meet <em>Dr. Hanna</em> &amp; the<br />practice behind the promise
-          </h1>
-          <div class="lead">
-            "I am an MRM Medical Director and a mother of two boys — and I
-            believe in the dream too."
-          </div>
-          <p>
-            <strong>Hanna Jesionowska, MD</strong> founded Manhattan
-            Reproductive Medicine in 2001 as a deliberate alternative to the
-            impersonal care of large fertility hospitals. At MIRI, one doctor
-            means one vision of care — from your first consultation through
-            retrieval and the moment you see a heartbeat.
-          </p>
-          <p>
-            Patients travel from across the US and internationally to work with
-            Dr. Hanna. Her approach combines cutting-edge reproductive science
-            with deep compassion, ensuring that every patient feels seen, heard,
-            and supported at every step.
-          </p>
+        <p>
+          <strong>Hanna Jesionowska, MD</strong> founded Manhattan
+          Reproductive Medicine in 2001 as a deliberate alternative to the
+          impersonal care of large fertility hospitals. At MIRI, one doctor
+          means one vision of care — from your first consultation through
+          retrieval and the moment you see a heartbeat.
+        </p>
+        <p>
+          Patients travel from across the US and internationally to work with
+          Dr. Hanna. Her approach combines cutting-edge reproductive science
+          with deep compassion, ensuring that every patient feels seen, heard,
+          and supported at every step.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="stats-section full-width">
+    <div class="stats-bar">
+      <div class="stats-bar-item">
+        <div class="num">Strong</div>
+        <div class="label">Success rates<br />for ages 38–40</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="num">2001</div>
+        <div class="label">Helping <br />families since</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="num">1 MD</div>
+        <div class="label">Your doctor<br />every visit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOCTOR SPOTLIGHT ── -->
+  <section class="doctor-section full-width">
+    <div class="doctor-spotlight">
+      <div class="doctor-spotlight-left">
+        <p class="label">The doctor behind MIRI</p>
+        <blockquote>"Every family's dream deserves a champion."</blockquote>
+        <div class="bio">
+          <strong>Hanna Jesionowska, MD</strong> is board-certified in
+          Reproductive Endocrinology and Infertility. She has dedicated her
+          career to providing personalized, single-provider fertility care — a
+          rare model in today's landscape. Dr. Hanna personally performs every
+          monitoring visit, retrieval, and embryo transfer, ensuring
+          continuity and trust throughout your journey. <br /><br />
+          Patients travel from across the US and internationally to work with
+          Dr. Hanna. Her approach combines cutting-edge reproductive science
+          with deep compassion, ensuring that every patient feels seen, heard,
+          and supported at every step.
         </div>
       </div>
-    </section>
-
-    <!-- ── STATS ── -->
-    <section class="stats-section full-width">
-      <div class="stats-bar">
-        <div class="stats-bar-item">
-          <div class="num">50%</div>
-          <div class="label">Success rate<br />ages 38–40</div>
-        </div>
-        <div class="stats-bar-item">
-          <div class="num">2001</div>
-          <div class="label">Helping <br />families since</div>
-        </div>
-        <div class="stats-bar-item">
-          <div class="num">1 MD</div>
-          <div class="label">Your doctor<br />every visit</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── DOCTOR SPOTLIGHT ── -->
-    <section class="doctor-section full-width">
-      <div class="doctor-spotlight">
-        <div class="doctor-spotlight-left">
-          <p class="label">The doctor behind MIRI</p>
-          <blockquote>"Every family's dream deserves a champion."</blockquote>
-          <div class="bio">
-            <strong>Hanna Jesionowska, MD</strong> is board-certified in
-            Reproductive Endocrinology and Infertility. She has dedicated her
-            career to providing personalized, single-provider fertility care — a
-            rare model in today's landscape. Dr. Hanna personally performs every
-            monitoring visit, retrieval, and embryo transfer, ensuring
-            continuity and trust throughout your journey. <br /><br />
-            Patients travel from across the US and internationally to work with
-            Dr. Hanna. Her approach combines cutting-edge reproductive science
-            with deep compassion, ensuring that every patient feels seen, heard,
-            and supported at every step.
-          </div>
-        </div>
-        <div class="doctor-spotlight-right">
-          <div class="text-symbol">Credentials &amp; certifications</div>
-          <div class="mini-quote">
-            <ul class="cred-list">
-              <li>
-                <strong>MRM Medical Director</strong>
-                Manhattan Reproductive Medicine, P.C.
-              </li>
-              <li>
-                <strong>SART Member Clinic</strong>
-                Society for Assisted Reproductive Technology
-              </li>
-              <li>
-                <strong>Joint Commission Accredited</strong>
-                The Gold Seal of Approval in healthcare
-              </li>
-              <li>
-                <strong>NY State &amp; FDA Certified</strong>
-                In-office IVF laboratory facility
-              </li>
-            </ul>
-          </div>
+      <div class="doctor-spotlight-right">
+        <div class="text-symbol">Credentials &amp; certifications</div>
+        <div class="mini-quote">
+          <ul class="cred-list">
+            <li>
+              <strong>MRM Medical Director</strong>
+              Manhattan Reproductive Medicine, P.C.
+            </li>
+            <li>
+              <strong>SART Member Clinic</strong>
+              Society for Assisted Reproductive Technology
+            </li>
+            <li>
+              <strong>Joint Commission Accredited</strong>
+              The Gold Seal of Approval in healthcare
+            </li>
+            <li>
+              <strong>NY State &amp; FDA Certified</strong>
+              In-office IVF laboratory facility
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── CREDENTIALS ── -->
-    <!-- <section class="credentials-section full-width">
+  <!-- ── CREDENTIALS ── -->
+  <!-- <section class="credentials-section full-width">
       <div class="credentials-wrapper">
         <h2>Credentials &amp; certifications</h2>
         <div class="cred-grid">
@@ -1273,193 +1467,175 @@
       </div>
     </section> -->
 
-    <!-- ── TEAM ── -->
-    <section class="team-section full-width">
-      <div class="team-wrapper">
-        <h2 class="section-title">Our <span class="gold">Team</span></h2>
-        <div class="team-grid">
-          <div class="team-member">
-            <div class="avatar">
-              <img
-                src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed.jpg"
-                alt="Dr. Leonid Rosen"
-                onerror="
+  <!-- ── TEAM ── -->
+  <section class="team-section full-width">
+    <div class="team-wrapper">
+      <h2 class="section-title">Our <span class="gold">Team</span></h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="avatar">
+            <img src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed.jpg" alt="Dr. Leonid Rosen" onerror="
                   this.onerror = null;
                   this.parentElement.innerHTML =
                     '<span class=\'placeholder-icon\'><i class=\'fas fa-user-md\'></i></span>';
-                "
-              />
-            </div>
-            <div class="name">Dr. Leonid Rosen</div>
-            <div class="role">Anesthesiologist</div>
+                " />
           </div>
-          <div class="team-member">
-            <div class="avatar">
-              <img
-                src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-1.jpg"
-                alt="Carlo Acosta"
-                onerror="
+          <div class="name">Dr. Leonid Rosen</div>
+          <div class="role">Anesthesiologist</div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">
+            <img src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-1.jpg" alt="Carlo Acosta" onerror="
                   this.onerror = null;
                   this.parentElement.innerHTML =
                     '<span class=\'placeholder-icon\'><i class=\'fas fa-user-md\'></i></span>';
-                "
-              />
-            </div>
-            <div class="name">Carlo Acosta</div>
-            <div class="role">Embryologist</div>
+                " />
           </div>
-          <div class="team-member">
-            <div class="avatar">
-              <img
-                src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2.jpg"
-                alt="Belkis"
-                onerror="
+          <div class="name">Carlo Acosta</div>
+          <div class="role">Embryologist</div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">
+            <img src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2.jpg" alt="Belkis" onerror="
                   this.onerror = null;
                   this.parentElement.innerHTML =
                     '<span class=\'placeholder-icon\'><i class=\'fas fa-user-md\'></i></span>';
-                "
-              />
-            </div>
-            <div class="name">Belkis</div>
-            <div class="role">Nurse</div>
+                " />
           </div>
-          <div class="team-member">
-            <div class="avatar">
-              <img
-                src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2.png"
-                alt="Rosa"
-                onerror="
+          <div class="name">Belkis</div>
+          <div class="role">Nurse</div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">
+            <img src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2.png" alt="Rosa" onerror="
                   this.onerror = null;
                   this.parentElement.innerHTML =
                     '<span class=\'placeholder-icon\'><i class=\'fas fa-user-md\'></i></span>';
-                "
-              />
-            </div>
-            <div class="name">Rosa</div>
-            <div class="role">Nurse</div>
+                " />
           </div>
-          <div class="team-member">
-            <div class="avatar">
-              <img
-                src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2-1-1.png"
-                alt="Beatrez Mendez"
-                onerror="
+          <div class="name">Rosa</div>
+          <div class="role">Nurse</div>
+        </div>
+        <div class="team-member">
+          <div class="avatar">
+            <img src="https://doctorhanna.com/wp-content/uploads/2023/11/unnamed-2-1-1.png" alt="Beatrez Mendez"
+              onerror="
                   this.onerror = null;
                   this.parentElement.innerHTML =
                     '<span class=\'placeholder-icon\'><i class=\'fas fa-user-md\'></i></span>';
-                "
-              />
-            </div>
-            <div class="name">Beatrez Mendez</div>
-            <div class="role">Office Manager</div>
+                " />
+          </div>
+          <div class="name">Beatrez Mendez</div>
+          <div class="role">Office Manager</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION ── -->
+  <section class="mission-section full-width">
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="icon">✦</div>
+        <h3>Our mission</h3>
+        <p>
+          To provide world-class fertility care that combines the latest
+          reproductive science with a deeply human, compassionate touch. We
+          believe that every individual and couple deserves to be treated with
+          dignity, respect, and personalized attention.
+        </p>
+      </div>
+      <div class="mission-card">
+        <div class="icon">♥</div>
+        <h3>Our philosophy</h3>
+        <p>
+          At MIRI, you are never a number. Dr. Hanna's single-provider model
+          means that you build a genuine, trusting relationship with your
+          doctor — from your first phone call to the day you see your baby's
+          heartbeat on the ultrasound.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ── -->
+  <section class="timeline-section full-width">
+    <div class="timeline-wrapper">
+      <h2>Our story</h2>
+      <div class="timeline-grid">
+        <div class="timeline-item">
+          <div class="year">2001</div>
+          <div class="desc">
+            Dr. Hanna founds Manhattan Reproductive Medicine with a vision of
+            personalized, single-provider care.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2008</div>
+          <div class="desc">
+            MIRI becomes a SART member clinic, committed to the highest
+            standards of reproductive medicine.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2015</div>
+          <div class="desc">
+            Joint Commission Accreditation — the gold standard for healthcare
+            quality and safety.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Today</div>
+          <div class="desc">
+            Thousands of families built. One doctor, one vision, one promise:
+            you are never a number.
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── MISSION ── -->
-    <section class="mission-section full-width">
-      <div class="mission-grid">
-        <div class="mission-card">
-          <div class="icon">✦</div>
-          <h3>Our mission</h3>
-          <p>
-            To provide world-class fertility care that combines the latest
-            reproductive science with a deeply human, compassionate touch. We
-            believe that every individual and couple deserves to be treated with
-            dignity, respect, and personalized attention.
+  <!-- ── CTA ── -->
+  <section class="cta-section full-width" id="contact">
+    <div class="cta-wrapper">
+      <div class="cta-left">
+        <p class="cta-label">Take the first step</p>
+        <h2>Take the first step<br />toward your family.</h2>
+        <p>
+          The consultation is free and without obligation. Speak directly with
+          our team to ask questions, understand your options, and meet the
+          practice — before committing to anything.
+        </p>
+        <a href="tel:2127940080" class="btn-fill">Call us today</a>
+      </div>
+      <div class="cta-right">
+        <div>
+          <p class="label">Phone</p>
+          <a href="tel:2127940080" class="phone">212-794-0080</a>
+        </div>
+        <div class="address">
+          <p><strong>Manhattan Reproductive Medicine, P.C.</strong></p>
+          <p>Park Avenue, New York City, NY</p>
+          <p class="hours">
+            Monday–Friday · 7:00 am – 5:00 pm<br />Saturday · By appointment
           </p>
         </div>
-        <div class="mission-card">
-          <div class="icon">♥</div>
-          <h3>Our philosophy</h3>
-          <p>
-            At MIRI, you are never a number. Dr. Hanna's single-provider model
-            means that you build a genuine, trusting relationship with your
-            doctor — from your first phone call to the day you see your baby's
-            heartbeat on the ultrasound.
-          </p>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── TIMELINE ── -->
-    <section class="timeline-section full-width">
-      <div class="timeline-wrapper">
-        <h2>Our story</h2>
-        <div class="timeline-grid">
-          <div class="timeline-item">
-            <div class="year">2001</div>
-            <div class="desc">
-              Dr. Hanna founds Manhattan Reproductive Medicine with a vision of
-              personalized, single-provider care.
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="year">2008</div>
-            <div class="desc">
-              MIRI becomes a SART member clinic, committed to the highest
-              standards of reproductive medicine.
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="year">2015</div>
-            <div class="desc">
-              Joint Commission Accreditation — the gold standard for healthcare
-              quality and safety.
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="year">Today</div>
-            <div class="desc">
-              Thousands of families built. One doctor, one vision, one promise:
-              you are never a number.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-mark">
+      MIRI · Manhattan Reproductive Medicine · Est. 2001
+    </div>
+    <div class="footer-right">
+      <a href="#">Privacy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">HIPAA</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+</body>
 
-    <!-- ── CTA ── -->
-    <section class="cta-section full-width" id="contact">
-      <div class="cta-wrapper">
-        <div class="cta-left">
-          <p class="cta-label">Take the first step</p>
-          <h2>Take the first step<br />toward your family.</h2>
-          <p>
-            The consultation is free and without obligation. Speak directly with
-            our team to ask questions, understand your options, and meet the
-            practice — before committing to anything.
-          </p>
-          <a href="tel:2127940080" class="btn-fill">Call us today</a>
-        </div>
-        <div class="cta-right">
-          <div>
-            <p class="label">Phone</p>
-            <a href="tel:2127940080" class="phone">212-794-0080</a>
-          </div>
-          <div class="address">
-            <p><strong>Manhattan Reproductive Medicine, P.C.</strong></p>
-            <p>Park Avenue, New York City, NY</p>
-            <p class="hours">
-              Monday–Friday · 7:00 am – 5:00 pm<br />Saturday · By appointment
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── FOOTER ── -->
-    <footer>
-      <div class="footer-mark">
-        MIRI · Manhattan Reproductive Medicine · Est. 2001
-      </div>
-      <div class="footer-right">
-        <a href="#">Privacy</a>
-        <a href="#">Accessibility</a>
-        <a href="#">HIPAA</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </footer>
-  </body>
 </html>
